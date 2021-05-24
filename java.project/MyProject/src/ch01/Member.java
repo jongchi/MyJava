@@ -1,7 +1,9 @@
+package ch01;
 
 public class Member {
 	public static void main(String[] args) {
 		System.out.println("성종원");
+		
 		Calculator calc = new Calculator();
 		int a = calc.plus(5,5);
 		System.out.println(a);
