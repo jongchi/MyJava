@@ -58,4 +58,5 @@ public class Calculator {
 		int num = Integer.parseInt(input);
 		return num;
 	}
+	
 }
