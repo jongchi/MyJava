@@ -4,21 +4,25 @@ import java.util.Scanner;
 
 public class Calculator {
 
-		void add(int a, int b) { // 더하기 연산 후 출력하는 메소드
+		int add(int a, int b) { // 더하기 연산 후 출력하는 메소드
 			int result = a + b;
-			System.out.println(result);
+			System.out.println(a + " + " + b + " = " +result);
+			return result;
 		}
-		void sub(int a, int b) { // 빼기 연산 후 출력하는 메소드
+		int sub(int a, int b) { // 빼기 연산 후 출력하는 메소드
 			int result = a - b;
-			System.out.println(result);
+			System.out.println(a + " - " + b + " = " +result);
+			return result;
 		}		
-		void multi(int a, int b) { // 곱하기 연산 후 출력하는 메소드
+		int multi(int a, int b) { // 곱하기 연산 후 출력하는 메소드
 			int result = a * b;
-			System.out.println(result);
+			System.out.println(a + " * " + b + " = " +result);
+			return result;
 		}	
-		void div(int a, int b) { // 나누기 연산 후 출력하는 메소드
-			int result = a - b;
-			System.out.println(result);
+		int div(int a, int b) { // 나누기 연산 후 출력하는 메소드
+			int result = a / b;
+			System.out.println(a + " / " + b + " = " +result);
+			return result;
 		}	
 		final double PI = 3.14159d; // 원의 둘레와 넓이를 구하기 위한 원주율 
 		
@@ -33,24 +37,23 @@ public class Calculator {
 	public static void main(String[] args) {
 			Calculator cal = new Calculator();
 			
-			cal.add(2, 5);		// 사칙 연산 
-			cal.sub(10, 2);
-			cal.multi(10, 5);
-			cal.div(10, 2);
-			
-			double a1 = cal.circlePerimeter(6); // 원 계산
-			System.out.println(a1);
-			double a2 = cal.circlePerimeter(4);
-			System.out.println(a2);
-			
 			System.out.println("첫 번째 숫자를 입력하세요."); // 숫자 입력
-			int b1 = inputNum();
+			int b1 = inputNum();	// 첫 번째 숫자 입력
 			System.out.println("두 번째 숫자를 입력하세요.");
-			int b2 = inputNum();
+			int b2 = inputNum();	// 두 번째 숫자 입력
 			
-		
 			cal.add(b1, b2); // test
+			cal.sub(b1, b2);
+			cal.multi(b1, b2);
+			cal.div(b1, b2);
+			System.out.println();
 			
+			System.out.println("반지름을 입력해 주세요.");
+			int a = inputNum();
+			double a1 = cal.circlePerimeter(a); // 원 계산
+			System.out.println("원의 둘레 : " + a1);
+			double a2 = cal.circleArea(a);
+			System.out.println("원의 넓이 : " + a2);
 	}	
 	static int inputNum() {
 		Scanner scanner = new Scanner(System.in);  //매개변수 인자 전달
