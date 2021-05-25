@@ -4,23 +4,26 @@ public class Member {
 	String name;		// 이름	
 	String phoneNo;		// 전화번호
 	String major;		// 전공
+	int grade;			// 학년
 	String email;		// 이메일
 	String birthDay;	// 생일
 	String address;		// 주소
+
 	public Member(String name, String phoneNo, String major, 
-			String email, String birthDay, String address) {
+			int grade, String email, String birthDay, String address) {
 		// 모든 정보 저장하는 생성자
-		this(name, phoneNo, major, email);
+		this(name, phoneNo, major, grade, email);
 		this.birthDay = birthDay;
 		this.address = address;
 	}	
 	
 	public Member(String name, String phoneNo, String major, 
-			String email) {
+			 int grade ,String email) {
 		// 생일, 주소 저장하지 않는 생성자.
 		this.name = name;
 		this.phoneNo = phoneNo;
 		this.major = major;
+		this.grade = grade;
 		this.email = email;	
 	}
 	public void information() {
@@ -34,11 +37,11 @@ public class Member {
 	}
 	
 	public static void main(String[] args) {
-		Member mem1 = new Member("성종원","010-1234-5678","관광경영","sesi8624@naver.com",
-									"07/21", "서울시 도봉구");
+		Member mem1 = new Member("이순신","010-1234-5678","군사학과",4,"soonsin@naver.com",
+									"07/21", "서울");
 		mem1.information();
 		
-		Member mem2 = new Member("홍길동","010-2345-6789", "국어국문", "gildong@naver.com");
+		Member mem2 = new Member("홍길동","010-2345-6789", "국어국문", 4,"gildong@naver.com");
 		mem2.information();
 	}
 
