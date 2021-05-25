@@ -11,7 +11,7 @@ public class Member {
 	}
 
 	static void fluShot(int age) { 	// 독감 예방 접종 여부
-		boolean ageCheck = age < 15 || age >= 65;
+		boolean ageCheck = age < 15 || age >= 65;	// 15세 미만 or 65세 이상
 		if (ageCheck) {
 			System.out.println("무료예방접종이 가능합니다.");
 		} else {
