@@ -6,15 +6,15 @@ public class Student {
 //	①학생이름, 국어점수, 영어점수, 수학점수를 저장하는 변수를 정의 합니다.	
 
 	private String Name;
-	private int koreanScore;
-	private int englishScore;
+	private int korScore;
+	private int engScore;
 	private int mathScore;
 
 	public Student(String Name, int koreanScore, int englishScore, 
 			int mathScore) {
 		this.Name = Name;
-		this.koreanScore = koreanScore;
-		this.englishScore = englishScore;
+		this.korScore = koreanScore;
+		this.engScore = englishScore;
 		this.mathScore = mathScore;
 
 		
@@ -27,17 +27,17 @@ public class Student {
 	public void setName(String Name) {
 		this.Name = Name;
 	}
-	public int getKoreanScore() {
-		return koreanScore;
+	public int getKorScore() {
+		return korScore;
 	}
-	public void setKoreanScore(int koreanScore) {
-		this.koreanScore = koreanScore;
+	public void setKorScore(int koreanScore) {
+		this.korScore = koreanScore;
 	}
-	public int getEnglishScore() {
-		return englishScore;
+	public int getEngScore() {
+		return engScore;
 	}
-	public void setEnglishScore(int englishScore) {
-		this.englishScore = englishScore;
+	public void setEngScore(int englishScore) {
+		this.engScore = englishScore;
 	}
 	public int getMathScore() {
 		return mathScore;
@@ -49,15 +49,15 @@ public class Student {
 //	③총점과 평균을 구해 결과를 반환하는 메소드를 정의합니다.
 	
 	int getSum() {
-		return koreanScore + englishScore + mathScore;
+		return korScore + engScore + mathScore;
 	}
-	int getAverage() {
-		return  (koreanScore + englishScore + mathScore)/3;
+	double getAverage() {
+		return  ((double)korScore + engScore + mathScore)/3;
 	}
 	void stuInfo() {
 		System.out.println("학생 이름 : " + Name);
-		System.out.println("국어 점수 : " + koreanScore);
-		System.out.println("영어 점수 : " + englishScore);
+		System.out.println("국어 점수 : " + korScore);
+		System.out.println("영어 점수 : " + engScore);
 		System.out.println("수학 점수 : " + mathScore);
 		System.out.println("총 점수 : " + getSum());
 		System.out.println("평균 점수 : " + getAverage());
@@ -65,7 +65,9 @@ public class Student {
 	}
 
 	public static void main(String[] args) {
-
+		int korSum = 0;
+		int engSum = 0;
+		int mathSum = 0;
 //		main()메소드에 아래 내용을 정의해봅시다.
 //		①Student 타입의 배열을 선언하고, 요소 10개를 저장할 수 있는 배열 인스턴스를 생성해 봅시다.
 //		②Student 타입의 인스턴스를 생성하고 배열에 저장하는 코드를 정의해봅시다.
@@ -73,17 +75,35 @@ public class Student {
 		
 		Student[] stuArr = new Student[10];
 
-
 		stuArr[0] = new Student("홍길동",80,90,100);
 		stuArr[1] = new Student("임꺽정",70,65,90);
 		stuArr[2] = new Student("이순신",90,100,95);
-		try {
+		stuArr[3] = new Student("익명",90,100,95);	
+		stuArr[4] = new Student("익명1", 85,55,80);
+		stuArr[5] = new Student("익명2", 90,78,95);
+		stuArr[6] = new Student("익명3", 85,81,80);
+		stuArr[7] = new Student("익명4", 94,55,77);
+		stuArr[8] = new Student("익명5", 85,55,80);
+		stuArr[9] = new Student("익명6", 85,55,81);
+
+
 			for(int i = 0; i < stuArr.length; i++) {
 				stuArr[i].stuInfo();
-			}			
-		} catch(NullPointerException e) {
-			System.out.println("학생 정보를 추가해주세요.");
-		} 
+				korSum += stuArr[i].korScore;
+				engSum += stuArr[i].engScore;
+				mathSum += stuArr[i].mathScore;
+			}		
+			System.out.println("국어 총점 : " + korSum);
+			System.out.println("국어 평균 : " + (double)korSum/stuArr.length);
+			System.out.println("영어 총점 : " + engSum);
+			System.out.println("영어 평균 : " + (double)engSum/stuArr.length);
+			System.out.println("수학 총점 : " + mathSum);
+			System.out.println("수학 평균 : " + (double)mathSum/stuArr.length);
+			
+
 		
+		
+		
+
 	} // main의 끝
 }
