@@ -84,5 +84,6 @@ public class Student {
 		} catch(NullPointerException e) {
 			System.out.println("학생 정보를 추가해주세요.");
 		} 
+		
 	} // main의 끝
 }
