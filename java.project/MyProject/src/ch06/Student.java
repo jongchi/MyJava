@@ -99,11 +99,7 @@ public class Student {
 			System.out.println("영어 평균 : " + (double)engSum/stuArr.length);
 			System.out.println("수학 총점 : " + mathSum);
 			System.out.println("수학 평균 : " + (double)mathSum/stuArr.length);
-			
-
-		
-		
-		
+	
 
 	} // main의 끝
 }
