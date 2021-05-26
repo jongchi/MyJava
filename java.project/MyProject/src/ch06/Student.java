@@ -10,11 +10,11 @@ public class Student {
 	private int engScore;
 	private int mathScore;
 
-	public Student(String Name, int koreanScore, int englishScore, 
+	public Student(String Name, int korScore, int engScore, 
 			int mathScore) {
 		this.Name = Name;
-		this.korScore = koreanScore;
-		this.engScore = englishScore;
+		this.korScore = korScore;
+		this.engScore = engScore;
 		this.mathScore = mathScore;
 
 		
@@ -30,14 +30,14 @@ public class Student {
 	public int getKorScore() {
 		return korScore;
 	}
-	public void setKorScore(int koreanScore) {
-		this.korScore = koreanScore;
+	public void setKorScore(int korScore) {
+		this.korScore = korScore;
 	}
 	public int getEngScore() {
 		return engScore;
 	}
-	public void setEngScore(int englishScore) {
-		this.engScore = englishScore;
+	public void setEngScore(int engScore) {
+		this.engScore = engScore;
 	}
 	public int getMathScore() {
 		return mathScore;
