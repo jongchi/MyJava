@@ -5,8 +5,8 @@ import java.util.Calendar;
 public class Person {
 //	① 이름을 저장하는 변수, 주민등록번호를 저장하는 변수를 정의해봅시다.
 
-	String name = "홍길동";
-	String perNum = "910101-1234567";
+	String name;
+	String perNum;
 	
 //	④ Person 클래스에 생성자를 정의해서 인스턴스 변수들을 초기화 해봅시다.
 	
