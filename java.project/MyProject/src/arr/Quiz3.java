@@ -1,7 +1,7 @@
 package arr;
 
 public class Quiz3 {
-	public static void showArr(int[][] arr) {
+	static void showArr(int[][] arr) {
 
 		for(int i=0;i<arr.length;i++) {
 			for(int j=0;j<arr.length;j++) {
@@ -10,25 +10,22 @@ public class Quiz3 {
 			System.out.println();
 		}
 	}
+	
+	static int[][] moveArr(int[][] arr) {
+		int[] tmp = arr[arr[0].length-1];
+		for(int i=arr.length-1;i>0;i--) {
+			arr[i] = arr[i-1];
+		}
+		arr[0] = tmp;
+		return arr;
+	}
 	public static void main(String[] args) {
 		int[][] arr = new int[][] {{1,2,3},{4,5,6},{7,8,9}};
 		
-//		showArr(arr);
+		showArr(arr);
+		System.out.println();
 		
-		int[] temp = new int[arr[0].length];
-		
-		for(int i=0;i<temp.length;i++) {
-			temp[i] = arr[arr.length-1][i];	
-		}
-		for(int i=arr.length-1;i>0;i--) {
-			for(int j=0;j<arr[i].length;j++) {
-				arr[i][j] = arr[i-1][j];
-			}
-		
-		}
-		for(int k=0;k<temp.length;k++) {
-			arr[0][k] = temp[k];
-		}
+		moveArr(arr);
 		showArr(arr);
 	}
 	
