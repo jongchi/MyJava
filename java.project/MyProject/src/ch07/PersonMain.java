@@ -7,7 +7,7 @@ public class PersonMain {
 
 		Person per1 = new Person("홍길동","910101-1234567");
 		Person man1 = new Male("이순신","810101-1234567","해군");
-		Person woman1 = new Female("신사임당","710101-2345678","성균관대학교");
+		Person woman1 = new Female("신사임당","010101-4345678","성균관대학교");
 		
 //		② 생성된 인스턴스들을 이용해서 메소드를 호출해봅시다.
 		per1.hello();

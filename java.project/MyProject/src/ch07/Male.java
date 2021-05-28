@@ -12,7 +12,7 @@ public class Male extends Person{
 // ③ Person 클래스에서 정의된 인사하는 메소드를 오버라이딩 해봅시다.
 	
 	void hello() {
-		System.out.printf("안녕하세요. 저는 %s 입니다. %d 살 입니다. %n", this.name, ageCal());
+		super.hello();
 		if(this.army != null) {
 			System.out.println("저는 "+ army +"에서 군복무를 했습니다.");	
 		}

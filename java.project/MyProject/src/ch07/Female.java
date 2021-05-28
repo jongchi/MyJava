@@ -9,7 +9,7 @@ public class Female extends Person{
 	}
 	
 	void hello() {
-		System.out.printf("안녕하세요. 저는 %s 입니다. %d 살 입니다. %n", this.name, ageCal());
+		super.hello();
 		if(this.university != null) {
 			System.out.println("저는 "+ university +"를 졸업했습니다.");	
 		}
