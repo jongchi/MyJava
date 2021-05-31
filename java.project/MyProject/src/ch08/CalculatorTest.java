@@ -7,5 +7,6 @@ public class CalculatorTest {
 		System.out.println(calc.substract(10, 3));
 		System.out.println(calc.multiply(10, 32));
 		System.out.println(calc.divide(40, 7));
+
 	}
 }
