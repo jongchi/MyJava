@@ -1,6 +1,6 @@
 package ch08;
 
-public class Calculator2 extends Calculator1 {
+public class CalculatorImpl extends AbsCalculator {
 
 	@Override
 	public long add(long n1, long n2) {
