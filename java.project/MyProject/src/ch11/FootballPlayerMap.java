@@ -4,13 +4,19 @@ import java.util.*;
 
 public class FootballPlayerMap {
 	public static void main(String[] args) {
-		HashMap<Integer, FootballPlayer> map = new HashMap();
-			map.put(7, new FootballPlayer("김미드", 7, "이랜드", 27));
-			map.put(11, new FootballPlayer("박공격", 11, "이랜드", 23));
-			map.put(13, new FootballPlayer("이수비", 15, "울산현대", 28));
+		// 축구선수의 번호를 key로 하고 축구선수 인스턴스를 저장하는 
+		// Map<K,V> 인스턴스를 이용해서 프로그램을 만들어봅시다. 
+		HashMap<Integer, FootballPlayer> players = new HashMap();
+			players.put(7, new FootballPlayer("Son", 7, "Tot", 27));
+			players.put(10,new FootballPlayer("Kane", 10, "Tot", 26));
+			players.put(20, new FootballPlayer("Kane2", 20, "Tot", 16));
 			
-			for(Integer key : map.keySet())
-			System.out.println(map.get(key));
+			Set<Integer> set = players.keySet();
+			
+			Iterator<Integer> itr = set.iterator();
+			while(itr.hasNext()) {
+				System.out.println(players.get(itr.next()));
+			}
 
 	}
 }

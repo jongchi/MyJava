@@ -4,16 +4,23 @@ import java.util.*;
 
 public class FootballPlayerTreeSet {
 	public static void main(String[] args) {
-		TreeSet<FootballPlayer> treeSet = new TreeSet<>();
 		
-		treeSet.add(new FootballPlayer("강공격", 7, "가팀",27));
-		treeSet.add(new FootballPlayer("김수비", 10, "나팀",24));
-		treeSet.add(new FootballPlayer("강공격", 85, "다팀",25));
-		treeSet.add(new FootballPlayer("나미드", 9, "가팀",29));
-		treeSet.add(new FootballPlayer("나미드", 20, "가팀",23));
-		treeSet.add(new FootballPlayer("박키퍼", 13, "가팀",30));
+		// 3. TreeSet<E>을 이용해서 팀 이름순으로 정렬하고, 
+		// 같은 팀의 선수들은 이름 순으로 정렬하고, 
+		// 같은 이름의 선수는 번호 순으로 저장하는 프로그램을 만들어 봅시다.
+		TreeSet<FootballPlayer> players = new TreeSet<>();
+		
+		//데이터 저장
+		players.add(new FootballPlayer("Son1", 7, "Tot", 27));
+		players.add(new FootballPlayer("Park1", 7, "Man", 37));
+		players.add(new FootballPlayer("Son1", 9, "Tot", 27));
+		players.add(new FootballPlayer("Son2", 20, "Tot", 37));
+		players.add(new FootballPlayer("Park2", 20, "Man", 31));
+		players.add(new FootballPlayer("Park2", 21, "Man", 31));
 	
-		Iterator<FootballPlayer> itr = treeSet.iterator();
+		System.out.println("요소의 개수 : "+ players.size());
+		
+		Iterator<FootballPlayer> itr = players.iterator();
 		while(itr.hasNext()) {
 			System.out.println(itr.next());
 		}
