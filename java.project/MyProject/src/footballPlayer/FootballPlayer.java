@@ -14,7 +14,7 @@ public class FootballPlayer implements Comparable<FootballPlayer> {
 		this.age = age;
 	}
 	
-	public String toString() {
+	public String toString() { 
 		return "이름 : "+name+" 등번호 : "+number+" 소속 팀 : "+team+" 나이 : "+ age;
 	}
 	
@@ -39,8 +39,8 @@ public class FootballPlayer implements Comparable<FootballPlayer> {
 
 	@Override
 	public int compareTo(FootballPlayer o) {
-		int teamResult = this.team.compareTo(o.team);
-		int nameResult = this.name.compareTo(o.name);
+		int teamResult = this.team.compareTo(o.team); // 팀이름으로 비교
+		int nameResult = this.name.compareTo(o.name); // 선수이름으로 비교
 		if(teamResult>0) {
 			return 1;
 		} else if(teamResult<0) {
@@ -50,8 +50,8 @@ public class FootballPlayer implements Comparable<FootballPlayer> {
 				return 1;
 			} else if(nameResult<0) {
 				return -1;
-			} else if(nameResult ==0) {
-				return this.number - o.number;
+			} else if(nameResult == 0) {
+				return this.number - o.number; // 번호가 빠를수록 먼저 나오도록 정의
 			} else return 0;
 		}
 	}
