@@ -27,13 +27,10 @@ public class FootballPlayer implements Comparable<FootballPlayer> {
 		boolean result = false;
 		if(obj != null && obj instanceof FootballPlayer) {
 			FootballPlayer player = (FootballPlayer)obj;
-			if(this.name == player.name) {
-				if(this.team == player.team) {
-					if(this.age == player.age) {
-						result = true;
-					}
-				}
-			}
+			if((this.name == player.name) 
+					&& (this.team == player.team) && (this.age == player.age)) {
+				result = true;
+			}	
 		} return result;
 	}
 
