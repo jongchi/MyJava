@@ -8,6 +8,7 @@ public class ExceptionTest {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("사용자 ID를 입력해주세요.");
 		String input = scanner.nextLine();
+
 		if(input != null && !input.trim().isEmpty()) {
 			try {
 				 

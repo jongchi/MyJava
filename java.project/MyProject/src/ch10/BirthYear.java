@@ -4,6 +4,7 @@ import java.util.*;
 
 public class BirthYear {
 	public static void main(String[] args) {
+
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.print("태어난 연도를 입력해주세요.");
