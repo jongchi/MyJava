@@ -1,4 +1,4 @@
-package footballPlayer;
+package ch11;
 
 
 public class FootballPlayer implements Comparable<FootballPlayer> {
