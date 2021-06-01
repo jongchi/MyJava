@@ -36,20 +36,18 @@ public class FootballPlayer implements Comparable<FootballPlayer> {
 
 	@Override
 	public int compareTo(FootballPlayer o) {
-		int teamResult = this.team.compareTo(o.team); // 팀이름으로 비교
-		int nameResult = this.name.compareTo(o.name); // 선수이름으로 비교
-		if(teamResult>0) {
+		if(this.team.compareTo(o.team)>0) { // 팀 이름으로 비교
 			return 1;
-		} else if(teamResult<0) {
+		} else if(this.team.compareTo(o.team)<0) {
 			return -1;
-		} else {
-			if(nameResult>0) {
+		} else {	// 팀 이름이 같을 때
+			if(this.name.compareTo(o.name)>0) { // 선수 이름으로 비교
 				return 1;
-			} else if(nameResult<0) {
+			} else if(this.name.compareTo(o.name)<0) {
 				return -1;
-			} else if(nameResult == 0) {
+			} else { // 선수 이름이 같을 때
 				return this.number - o.number; // 번호가 빠를수록 먼저 나오도록 정의
-			} else return 0;
+			} 
 		}
 	}
 }
