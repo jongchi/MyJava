@@ -274,3 +274,29 @@ DBMS - Database management System : 소프트웨어
  - NUMBER(precision, scale) precision은 전체 자리 수, scale은 소수점 아래 자리 수
  - varchar2(길이) 길이의 입력값만큼을 최대길이로 한 문자열을 저장, 자동으로 크기 조절.
 
+UML에서 관계표현을 할때 상속은 일반화로 표현한다.
+추상클래스 or 인터페이스는 실체화 
+
+오라클 11.2 다운방법
+최상단 프로덕트 들어가서 오라클 데이터베이스 클릭
+화면 바뀌면 다운로드
+제일 아래까지 내려서 11g 릴리즈 다운
+윈도우 64
+로그인 다운
+설치 중 SYS는 admin 
+
+sql developer download
+window 64 - bit with jdk 8 included 다운로드
+
+sql 디벨로퍼
+사용자 이름 sys 비밀번호 admin
+비밀번호 저장
+틀 sysdba
+포트 기본값 1521
+테스트 눌러서 성공뜨는지 확인
+안되면 서비스 열고 오라클 시작 버튼 눌러야함
+
+다른 사용자에서 HR 누르고 체크 되어있는것 풀고
+비밀번호 tiger로 설정
+
+
