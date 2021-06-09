@@ -16,7 +16,7 @@ create table dept(                        -- dept table 생성
 );
 
 create table emp(                         -- emp table 생성
-  empno    number,                        -- 직원번호
+  empno    number(4),                        -- 직원번호
   ename    varchar2(10),                  -- 직원명
   job      varchar2(9),                   -- 직책
   mgr      number(4),                     -- 담당매니저
