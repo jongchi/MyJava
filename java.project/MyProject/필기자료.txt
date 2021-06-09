@@ -270,3 +270,7 @@ DBMS - Database management System : 소프트웨어
  2) 인스턴스 요소
   -tuple : 릴레이션의 행 릴레이션 내의 모든 tuple들은 서로 중복되지 않아야함.
 
+오라클의 데이터 형
+ - NUMBER(precision, scale) precision은 전체 자리 수, scale은 소수점 아래 자리 수
+ - varchar2(길이) 길이의 입력값만큼을 최대길이로 한 문자열을 저장, 자동으로 크기 조절.
+
