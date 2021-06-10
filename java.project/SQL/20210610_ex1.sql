@@ -15,7 +15,7 @@ from emp
 
 select ename, sal, sal*12+100 as ysal
 from emp
-order by ysal asc
+order by ysal desc
 ;
 
 -- 3.  급여가 2000을 넘는 사원의 이름과 급여를 표현, 
@@ -38,7 +38,7 @@ where empno=7788
 select ename, sal
 from emp
 --where not (sal>=2000 and sal<=3000)
-where not sal between 2000 and 3000
+where sal not between 2000 and 3000
 ;
 
 -- 6. 1981년 2월 20일 부터 1981년 5월 1일 사이에 
@@ -53,7 +53,7 @@ where hiredate between '81/2/20' and '81/5/1'
 -- 이름을 기준(내림차순)으로 영문자순으로 출력하시오.
 select ename, deptno
 from emp
-where deptno=20 or deptno=30
+where deptno in (20, 30)
 order by ename desc
 ;
 
@@ -62,7 +62,7 @@ order by ename desc
 -- 사원의 이름, 급여와 부서번호를 출력, 이름순(오름차순)으로 출력하시오.
 select ename,sal,deptno
 from emp
-where (sal between 2000 and 3000) and (deptno=20 or deptno=30)
+where sal between 2000 and 3000 and deptno in(20, 30)
 order by ename asc
 ;
 
@@ -107,7 +107,7 @@ where ename like '%A%' and ename like '%E%'
 
 select ename, job, sal
 from emp
-where job in ('CLERK', 'SALESMAN') and not sal in (1600, 950, 1300)
+where job in ('CLERK', 'SALESMAN') and  sal not in (1600, 950, 1300)
 ;
 
 -- 15. 커미션이 $500 이상인 사원의 이름과 급여 및 커미션을 출력하시오.
