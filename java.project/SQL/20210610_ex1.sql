@@ -23,7 +23,7 @@ order by ysal asc
 
 select ename, sal
 from emp
-where sal>=2000
+where sal>2000
 order by sal desc
 ;
 
