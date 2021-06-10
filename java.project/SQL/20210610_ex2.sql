@@ -51,7 +51,7 @@ where orderdate between '14/7/4' and '14/7/7'
 --(5) 2014년7월4일~7월7일사이에주문받은도서를제외한도서의주문번호
 select orderid
 from orders
-where not (orderdate between '14/7/4' and '14/7/7')
+where not orderdate between '14/7/4' and '14/7/7'
 ;
 --(6) 성이‘김’씨인고객의이름과주소
 select name, address
