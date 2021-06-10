@@ -107,7 +107,7 @@ where ename like '%A%' and ename like '%E%'
 
 select ename, job, sal
 from emp
-where job in ('CLREK', 'SALESMAN') and not sal in (1600, 950, 1300)
+where job in ('CLERK', 'SALESMAN') and not sal in (1600, 950, 1300)
 ;
 
 -- 15. 커미션이 $500 이상인 사원의 이름과 급여 및 커미션을 출력하시오.
