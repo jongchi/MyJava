@@ -60,9 +60,8 @@ group by deptno
 ;
 
 -- 26. 관리자 수를 출력하시오.
-select count(*) as "관리자 수"
+select count(distinct mgr) as "관리자 수"
 from emp
-where job='MANAGER'
 ;
 
 -- 27. 급여 최고액, 급여 최저액의 차액을 출력하시오.
