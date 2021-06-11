@@ -1,15 +1,15 @@
 --2021.06.11 
 
 -- 16. SUBSTR 함수를 사용하여 사원들의 입사한 년도와 입사한 달만 출력하시오.
-select substr(hiredate,0,5) as "hireyear/month"
+select substr(hiredate, 1, 5) as "hireyear/month"
 from emp
 ;
 
 -- 17. SUBSTR 함수를 사용하여 4월에 입사한 사원을 출력하시오.
 
-select ename, substr(hiredate,0,5) as "hireyear/month"
+select *
 from emp
-where substr(hiredate,0,5) like '%04'
+where substr(hiredate,4,2) = '04'
 ;
 
 -- 18. MOD 함수를 사용하여 사원번호가 짝수인 사람만 출력하시오.
@@ -19,7 +19,7 @@ where mod(empno, 2)=0
 ;
 
 -- 19. 입사일을 년도는 2자리(YY), 월은 숫자(MM)로 표시하고 요일은 약어 (DY)로 지정하여 출력하시오.
-select ename, to_char(hiredate, 'YY/MM/DY') as "입사일"
+select hiredate, to_char(hiredate, 'YY/MM/DY') as "입사일"
 from emp
 ;
 
@@ -38,7 +38,8 @@ select ename, job, sal,
         decode(job, 'ANALYST', sal+200,
                     'SALESMAN', sal+180,
                     'MANAGER', sal+150,
-                    'CLERK', sal+100 ) as upsal
+                    'CLERK', sal+100 
+) as upsal
 from emp
 ;
 
@@ -47,7 +48,9 @@ select max(sal) as "급여 최고액", min(sal) as "급여 최저액", sum(sal) 
 from emp
 ;
 
--- 24. 각 담당 업무 유형별로 급여 최고액, 최저액, 총액 및 평균 액을 출력하시오. 평균에 대해서는 정수로 반올림 하시오.
+-- 24. 각 담당 업무 유형별로 
+-- 급여 최고액, 최저액, 총액 및 평균 액을 출력하시오. 
+-- 평균에 대해서는 정수로 반올림 하시오.
 select job, max(sal) as "급여 최고액", min(sal) as "급여 최저액", sum(sal) as "급여 총액" , round(avg(sal)) as "급여 평균액"
 from emp
 group by job
@@ -65,11 +68,14 @@ from emp
 ;
 
 -- 27. 급여 최고액, 급여 최저액의 차액을 출력하시오.
-select max(sal)-min(sal) as "차액"
+select max(sal), min(sal), max(sal)-min(sal) as "차액"
 from emp
 ;
 
--- 28. 직급별 사원의 최저 급여를 출력하시오. 관리자를 알 수 없는 사원과 최저 급여가 2000 미만인 그룹은 제외시키고 결과를 급여에 대한 내림차순으로 정렬하여 출력하시오.
+-- 28. 직급별 사원의 최저 급여를 출력하시오. 
+-- 관리자를 알 수 없는 사원과 
+-- 최저 급여가 2000 미만인 그룹은 제외시키고 
+-- 결과를 급여에 대한 내림차순으로 정렬하여 출력하시오.
 select job, min(sal) as "직급별 최저 급여"
 from emp
 where mgr is not null
@@ -84,7 +90,13 @@ from emp
 group by deptno
 ;
 
--- 30. 각 부서에 대해 부서번호 이름, 지역 명, 사원 수, 부서내의 모든 사원의 평균 급여를 출력하시오. 평균 급여는 정수로 반올림 하시오. DECODE 사용.
+-- 30. 각 부서에 대해 
+-- 부서번호 이름, 
+-- 지역 명, 
+-- 사원 수, 
+-- 부서내의 모든 사원의 평균 급여를 출력하시오. 
+-- 평균 급여는 정수로 반올림 하시오. 
+-- DECODE 사용.
 select deptno, decode(deptno, 10, 'ACCOUNTING',
                               20, 'RESEARCH',
                               30, 'SALES',
