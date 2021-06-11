@@ -48,9 +48,9 @@ from emp
 ;
 
 -- 24. 각 담당 업무 유형별로 급여 최고액, 최저액, 총액 및 평균 액을 출력하시오. 평균에 대해서는 정수로 반올림 하시오.
-select deptno, max(sal) as "급여 최고액" , min(sal) as "급여 최저액", sum(sal) as "급여 총액" , round(avg(sal)) as "급여 평균액"
+select job, max(sal) as "급여 최고액", min(sal) as "급여 최저액", sum(sal) as "급여 총액" , round(avg(sal)) as "급여 평균액"
 from emp
-group by deptno
+group by job
 ;
 
 -- 25. COUNT(*) 함수를 이용하여 담당업무가 동일한 사원 수를 출력하시오.
