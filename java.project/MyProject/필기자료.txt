@@ -336,3 +336,9 @@ ex)  Java : util.date -> SimpleDataFormat 으로 변경
 	
 >>>>>>> Stashed changes
 
+20210614 ---------------------------------------------------------------
+
+sub Query 
+
+메인 쿼리는 select, update, insert 모두 가능하지만
+서브 쿼리안에는 받드시 select만 들어가야함
