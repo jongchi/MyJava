@@ -24,12 +24,18 @@ from emp
 where sal = (select min(sal) from emp)
 ;
 
+select ename, job, sal
+from emp
+where sal <= all (select min(sal) from emp) -- all 을 사용하면 모든 사항을 비교함.
+;
+
 -- 46. 평균급여가 가장 적은 직급의 직급 이름과 직급의 평균을 구하시오.
 select job, avg(sal)
 from emp
 group by job
-having avg(sal) = (select min(avg(sal)) from emp group by job)
+having avg(sal) <= all (select avg(sal) from emp group by job)
 ;
+
 
 -- 47. 각 부서의 최소 급여를 받는 사원의 이름, 급여, 부서번호를 표시하시오.
 select ename, sal, deptno
@@ -38,25 +44,36 @@ where sal = (select min(sal) from emp m
              where e.deptno = m.deptno group by m.deptno
              )
 order by sal desc;
+
+select *
+from emp e1
+where sal in (
+    select min(sal)
+    from emp e2
+    where e1.deptno = e2.deptno
+    group by deptno)
+;
 -- 48. 담당업무가 ANALYST 인 사원보다 
 -- 급여가 적으면서 
 -- 업무가 ANALYST가 아닌 사원들을 
 -- 표시(사원번호, 이름, 담당 업무, 급여)하시오.
 select empno, ename, job, sal
-from (select * from emp where job != 'ANALYST')
-where sal < ALL (select sal from emp where job = 'ANALYST')
+from emp
+where sal < ALL (select distinct sal from emp where job = 'ANALYST')
+and job != 'ANALYST'
 order by empno
 ;
 -- 49. 부하직원이 없는 사원의 이름을 표시하시오.
 select ename
 from emp
-where empno != all (select mgr from emp where mgr is not null)
+-- where empno != all (select distinct mgr from emp where mgr is not null)
+where empno not in (select distinct mgr from emp where mgr is not null)
 ;
 
 -- 50. 부하직원이 있는 사원의 이름을 표시하시오.
 select ename
 from emp
-where empno = any(select mgr from emp)
+where empno in (select distinct mgr from emp where mgr is not null)
 ;
 
 -- 51. BLAKE와 동일한 부서에 속한 
@@ -67,10 +84,11 @@ from emp
 where deptno = (select deptno from emp where ename='BLAKE' ) 
 and ename != 'BLAKE'
 ;
+
 -- 52. 급여가 평균 급여보다 많은 
 -- 사원들의 사원 번호와 이름을 표시하되 
 -- 결과를 급여에 대해서 오름차순으로 정렬하시오.
-select empno, ename
+select empno, ename, sal
 from emp
 where sal > (select avg(sal) from emp)
 order by sal
@@ -106,25 +124,31 @@ from emp
 where deptno = (select deptno from dept d where dname = 'RESEARCH')
 ;
 
+select empno, ename, sal
+from emp natural join dept
+where dname = 'RESEARCH'
+;
+
 -- 57. 평균 월급보다 많은 급여를 받고 sal > avg(sal) 
 -- 이름에 M이 포함된 사원과 같은 부서에서 근무하는 사원의 ename like '%M%' 
 -- 사원 번호, 이름, 급여를 표시하시오.
 select empno,ename, sal
 from emp
 where deptno in (select deptno from emp where ename like '%M%')
-                and sal > (select avg(sal) from emp)
+and sal > (select avg(sal) from emp)
 ;
+
 
 -- 58. 평균급여가 가장 적은 업무를 찾으시오.
 select job, avg(sal)
 from emp
 group by job
-having avg(sal) = (select min(avg(sal)) from emp group by job)
+having avg(sal) <= all (select avg(sal) from emp group by job)
 ;
 
 -- 59. 담당업무가 MANAGER 인 사원이 
 -- 소속된 부서와 동일한 부서의 사원을 표시하시오.
 select ename
 from emp
-where deptno in (select deptno from emp where job = 'MANAGER')
+where deptno in (select distinct deptno from emp where job = 'MANAGER')
 ;
