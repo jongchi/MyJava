@@ -28,8 +28,9 @@ where bookid not in (select o.bookid
 
 -- (8) 주문하지않은고객의이름(부속질의사용)
 select name
-from customer
-where custid not in (select custid from orders)
+from customer c
+where not exists (select custid from orders o 
+                    where c.custid = o.custid)
 ;
 
 -- (9) 주문금액의총액과주문의평균금액
