@@ -106,7 +106,7 @@ create table phoneinfo_com (
 insert into phoneinfo_basic
 values (pi_idx_pk.nextval, 'PARK', '010-7777-7777', 'park@gmail.com', 'LONDON', sysdate)
 ;
-insert into phoneinfo_com values (2, 'NAVER', pi_idx_pk.currval);
+insert into phoneinfo_com values (pi_com_idx_pk.nextval, 'NAVER', pi_idx_pk.currval);
 
 -- SELECT : READ
 select fr_name, pb.fr_phonenumber, pb.fr_email, pb.fr_address, pc.fr_c_company
@@ -139,6 +139,6 @@ where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
 
 -- sequence : 번호 재생기
 create sequence pi_idx_pk;
-create sequence pi_u_idx_pk start with 1 increment by 1;
-create sequence pi_com_idx_pk start with 1 increment by 1;
+create sequence pi_u_idx_pk start with 5 increment by 1;
+create sequence pi_com_idx_pk start with 5 increment by 1;
 
