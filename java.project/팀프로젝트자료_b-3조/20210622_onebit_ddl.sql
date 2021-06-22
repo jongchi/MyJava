@@ -6,12 +6,12 @@ drop table classorder;
 
 create table classmember (   -- 회원 정보 저장
     mno number(4) constraint classmember_mno_pk primary key, -- 회원번호
-    mid varchar2(20) not null,      -- ID
-    mpw varchar2(20) not null,      -- 비밀번호
-    mname varchar2(20) not null,    -- 이름
-    mdate date,                     -- 생년월일 
-    mloc varchar2(20),              -- 선호 지역
-    mpoint integer                  -- 보유 포인트
+    mid varchar2(20) not null unique,   -- ID
+    mpw varchar2(20) not null,          -- 비밀번호
+    mname varchar2(20) not null,        -- 이름
+    mdate date,                         -- 생년월일 
+    mloc varchar2(20),                  -- 선호 지역
+    mpoint integer                      -- 보유 포인트
 );
 
 create table bitclass (             -- 강좌 정보 저장     
@@ -49,7 +49,15 @@ start with 1
 increment by 1
 ;
 
-insert into classmember (mno, mid, mpw, mname, mloc)
-    values (classmember_mno_seq.nextval, 'jongwon', '123456', '성종원', '서울');  
+insert into classmember (mno, mid, mpw, mname, mloc, mdate)
+    values (classmember_mno_seq.nextval, 'jongwon', '123456', '성종원', '서울', '91/07/21');  
 
+update classmember
+set mpw = '123'
+where mno = 1;
+commit;
+rollback;
+update classmember set mpw='1234', mloc ='부산', mdate ='2021/01/01' where mid='sesi';
 select * from classmember;
+select * from classmember where mid = 'sesi';
+select * from classmember where mid = '비트클래스';

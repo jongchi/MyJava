@@ -3,30 +3,29 @@ package member;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
-
 
 public class MemberManager {
 	
 	private ClassMemberDAO dao;
 	private Scanner sc;
-	
+	private ClassMember member;
+	Connection conn = null;
+	String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
+	String user = "hr";
+	String pw = "tiger";
+		
 	public MemberManager(ClassMemberDAO dao){
 		this.dao = dao;
 		sc = new Scanner(System.in);
+
 	}
 
 	// 회원 가입
 	// 사용자에게 Scanner 클래스로 입력 받아 -> dao ClassMemberDAO 메소드로 저장
 	void createId() {
-		// Connection 객체 생성 -> 트랜젝션 처리
-		Connection conn = null;
-
-		// 2. 연결
-		String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "hr";
-		String pw = "tiger";
-		
+	
 		try {
 			conn = DriverManager.getConnection(jdbcUrl, user, pw);
 		
@@ -41,9 +40,8 @@ public class MemberManager {
 			String mdate = sc.nextLine();
 			System.out.println("선호하시는 지역을 입력해주세요.");
 			String mloc = sc.nextLine();
-			System.out.println(mid+mpw+mname+mdate+mloc);
 	
-			ClassMember member = new ClassMember(0, mid, mpw, mname, mdate, mloc);
+			member = new ClassMember(0, mid, mpw, mname, mdate, mloc);
 
 			int result = dao.createId(conn, member);
 			
@@ -60,17 +58,9 @@ public class MemberManager {
 		
 	}
 	// 회원 정보 수정
-	// 회원 가입
-	// 사용자에게 Scanner 클래스로 입력 받아 -> dao ClassMemberDAO 메소드로 저장
-	void editId() {
-		// Connection 객체 생성 -> 트랜젝션 처리
-		Connection conn = null;
 
-		// 2. 연결
-		String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "hr";
-		String pw = "tiger";
-		
+	void editId() {
+
 		try {
 			conn = DriverManager.getConnection(jdbcUrl, user, pw);
 		
@@ -84,7 +74,7 @@ public class MemberManager {
 			System.out.println("생년월일을 입력해주세요. ex)91/07/21");
 			String mdate = sc.nextLine();
 			
-			ClassMember member = new ClassMember(mid, mpw, mloc, mdate);
+			member = new ClassMember(mid, mpw, mloc, mdate);
 
 			int result = dao.editInfo(conn, member);
 			
@@ -100,7 +90,78 @@ public class MemberManager {
 		}
 		
 	}
-	// 포인트 확인
+	// 회원 정보 확인 
+	void showMyInfo() {
+
+		try {
+			conn = DriverManager.getConnection(jdbcUrl, user, pw);
+			
+			System.out.println("회원 정보를 출력합니다.");
+			System.out.println("ID를 다시 한 번 입력해주세요.");
+			String mid = sc.nextLine();
+			List<ClassMember> list = dao.getInfo(conn, mid);
+			
+			member = list.get(0);
+				System.out.println("이름 : " + member.getMname());
+				System.out.println("생년월일 : " + member.getMdate());
+				System.out.println("관심 지역 : " + member.getMloc());
+				System.out.println("포인트 : " + member.getMpoint());
+				System.out.println("------------------------");				
+			
+			
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+	}
+	
+	// 포인트 관리 
+	// 현재 보유중인 포인트 보기
+	void showPoint() {
+		System.out.println("현재 보유중인 포인트는 "+ member.getMpoint()+ " 입니다.");
+		
+	}
+	
+	void addPoint() {
+		System.out.println("충전 하실 금액을 입력해주세요.");
+		int inputPoint = Integer.parseInt(sc.nextLine());
+		int total = member.getMpoint() + inputPoint;
+		member.setMpoint(total);		
+		
+		try {
+			conn = DriverManager.getConnection(jdbcUrl, user, pw);
+			
+			int result = dao.editPoint(conn, member);
+			
+			
+			System.out.println("충전 완료!");
+			System.out.println("현재 보유중인 포인트는 "+ member.getMpoint()+" 입니다.");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
+	void subPoint() {
+		System.out.println("인출 하실 금액을 입력해주세요.");
+		int inputPoint = Integer.parseInt(sc.nextLine());
+		int total = member.getMpoint() - inputPoint;
+		member.setMpoint(total);		
+		
+		try {
+			conn = DriverManager.getConnection(jdbcUrl, user, pw);
+			
+			int result = dao.editPoint(conn, member);
+			
+			
+			System.out.println("인출 완료!");
+			System.out.println("현재 보유중인 포인트는 "+ member.getMpoint()+" 입니다.");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
