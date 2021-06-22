@@ -41,7 +41,7 @@ public class MemberManager {
 			String mdate = sc.nextLine();
 			System.out.println("선호하시는 지역을 입력해주세요.");
 			String mloc = sc.nextLine();
-			
+			System.out.println(mid+mpw+mname+mdate+mloc);
 	
 			ClassMember member = new ClassMember(0, mid, mpw, mname, mdate, mloc);
 
@@ -80,15 +80,13 @@ public class MemberManager {
 			System.out.println("수정하실 PW를 입력해주세요. 변경을 원치 않을 경우 기존 정보를 입력해주세요.");
 			String mpw = sc.nextLine();
 			System.out.println("지역을 입력해주세요. 변경을 원치 않을 경우 기존 정보를 입력해주세요.");
-			String loc = sc.nextLine();
+			String mloc = sc.nextLine();
 			System.out.println("생년월일을 입력해주세요. ex)91/07/21");
 			String mdate = sc.nextLine();
 			
-			ClassMember member = new ClassMember(mpw, loc, mdate, mid);
-			
-			dao.editInfo(conn, member);
+			ClassMember member = new ClassMember(mid, mpw, mloc, mdate);
 
-			int result = dao.createId(conn, member);
+			int result = dao.editInfo(conn, member);
 			
 			if(result > 0 ) {
 				System.out.println("정보가 수정 되었습니다.");

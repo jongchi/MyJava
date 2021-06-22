@@ -11,7 +11,9 @@ public class membermain {
 		Scanner sc = new Scanner(System.in);
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			manager.createId();
+			
+			// manager.createId();
+			
 			
 			manager.editId();
 			

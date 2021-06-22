@@ -10,7 +10,7 @@ public class ClassMember {
 	 private String mpw; // 비밀번호
 	 private String mname; // 이름
 	 private String mdate;	// 생년 월일
-	 private String loc; // 선호 지역
+	 private String mloc; // 선호 지역
 	 private int mpoint; // 보유 포인트
 	 
 	 public int getMno() {
@@ -53,12 +53,12 @@ public class ClassMember {
 		this.mdate = mdate;
 	}
 
-	public String getLoc() {
-		return loc;
+	public String getMloc() {
+		return mloc;
 	}
 
-	public void setLoc(String loc) {
-		this.loc = loc;
+	public void setMloc(String loc) {
+		this.mloc = loc;
 	}
 
 	public int getMpoint() {
@@ -70,21 +70,22 @@ public class ClassMember {
 	}
 
 
-	 public ClassMember(int mno, String mid, String mpw, String mname, String loc, String mdate) {
+	 public ClassMember(int mno, String mid, String mpw, String mname, String mdate, String mloc) {
 		 this.mno = mno;
 		 this.mid = mid;
 		 this.mpw = mpw;
 		 this.mname = mname;
-		 this.loc = loc;
 		 this.mdate = mdate;
+		 this.mloc = mloc;
 		 mpoint = 0;
 	 }
 
-	public ClassMember(String mpw, String loc, String mdate, String mid) {
+	public ClassMember(String mid, String mpw, String mloc, String mdate) {
 		this.mid = mid;
 		this.mpw = mpw;
-		this.loc = loc;
+		this.mloc = mloc;
 		this.mdate = mdate;
+		
 	}
 
 }

@@ -29,15 +29,16 @@ public class ClassMemberDAO {
 		int result = 0;
 		
 
-			String sql = "insert into classmember (mno, mid, mpw, mname, mloc, mdate) values (classmember_mno_seq.nextval, ?, ?, ?, ?, ?)";
+			String sql = "insert into classmember (mno, mid, mpw, mname, mdate, mloc) values (classmember_mno_seq.nextval, ?, ?, ?, ?, ?)";
 			try {
 				pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, member.getMid());
 			pstmt.setString(2, member.getMpw());
 			pstmt.setString(3, member.getMname());
-			pstmt.setString(4, member.getLoc());
-			pstmt.setString(5, member.getMdate());
+			pstmt.setString(4, member.getMdate());
+			pstmt.setString(5, member.getMloc());
+			
 			
 			result = pstmt.executeUpdate();
 			
@@ -69,7 +70,7 @@ public class ClassMemberDAO {
 			String sql = "update classmember set mpw=?, mloc =?, mdate =? where mid=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member.getMpw());
-			pstmt.setString(2, member.getLoc());
+			pstmt.setString(2, member.getMloc());
 			pstmt.setString(3, member.getMdate());
 			pstmt.setString(4, member.getMid());
 
