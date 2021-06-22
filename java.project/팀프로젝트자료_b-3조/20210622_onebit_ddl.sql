@@ -30,9 +30,9 @@ create table bitclass (             -- 강좌 정보 저장
     tno number(4) constraint bitclass_tno_fk references teacher(tno) -- 강사 번호
 );
 
-create table classorder (
-    orderno number(4) constraint classorder_on_pk primary key,
-    mno number(4) constraint classorder_mno_fk references classmember(mno),
-    cno number(4) constraint classorder_cno_fk references bitclass(cno),
-    orderdate date default sysdate
+create table classorder ( -- 수강 신청 
+    orderno number(4) constraint classorder_on_pk primary key, -- 신청번호
+    mno number(4) constraint classorder_mno_fk references classmember(mno), -- 회원 번호
+    cno number(4) constraint classorder_cno_fk references bitclass(cno), -- 강좌 번호
+    orderdate date default sysdate -- 신청일
 );
