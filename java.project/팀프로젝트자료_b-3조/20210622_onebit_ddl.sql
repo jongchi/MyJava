@@ -17,12 +17,12 @@ create table classmember (   -- 회원 정보 저장
 create table bitclass (             -- 강좌 정보 저장     
     cno number(4) constraint bitclass_cno__pk primary key, -- 강좌 번호
     mno number(4) constraint bitclass_mno_fk references classmember(mno), -- 강사 번호
-    title varchar2(50) not null,
+    title varchar2(50) not null unique, -- 강좌명
     cloc varchar2(20) not null, -- 강좌 지역
     startdate date not null, -- 강좌 시작일
     enddate date not null, -- 강좌 종료일
     fee integer not null, -- 수강료
-    discount integer, -- 할인 가격
+    discount number(3), -- 할인율
     rate number(2), -- 평점
     numpeople number(2) not null -- 수강 인원
 );
@@ -49,15 +49,3 @@ start with 1
 increment by 1
 ;
 
-insert into classmember (mno, mid, mpw, mname, mloc, mdate)
-    values (classmember_mno_seq.nextval, 'jongwon', '123456', '성종원', '서울', '91/07/21');  
-
-update classmember
-set mpw = '123'
-where mno = 1;
-commit;
-rollback;
-update classmember set mpw='1234', mloc ='부산', mdate ='2021/01/01' where mid='sesi';
-select * from classmember;
-select * from classmember where mid = 'sesi';
-select * from classmember where mid = '비트클래스';

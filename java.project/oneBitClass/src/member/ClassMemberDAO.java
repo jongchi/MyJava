@@ -101,7 +101,6 @@ public class ClassMemberDAO {
 
 		ArrayList<ClassMember> list = null;
 		
-		// 데이터 베이스의 Dept테이블 이용 select 결과를 -> list 저장
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -118,7 +117,7 @@ public class ClassMemberDAO {
 			
 			// 데이터를 Dept 객체로 생성 -> list에 저장
 			while(rs.next()) {
-				list.add(new ClassMember(rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),
+				list.add(new ClassMember(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),
 										rs.getString(6), rs.getInt(7)));
 			}
 				

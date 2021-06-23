@@ -7,8 +7,6 @@ public class ClassMember {
 
 	 private int mno; // 회원 번호
 	 private String mid; // 회원 ID
-
-
 	private String mpw; // 비밀번호
 	 private String mname; // 이름
 	 private String mdate;	// 생년 월일
@@ -90,14 +88,16 @@ public class ClassMember {
 		
 	}
 
-	 public ClassMember(String mid, String mpw, String mname, String mdate, String mloc, int mpoint) {
-		this.mid = mid;
+	 public ClassMember(int mno, String mid, String mpw, String mname, String mdate, String mloc, int mpoint) {
+		this.mno = mno;
+		 this.mid = mid;
 		this.mpw = mpw;
 		this.mname = mname;
 		this.mdate = mdate;
 		this.mloc = mloc;
 		this.mpoint = mpoint;
 	}
+
 
 
 
