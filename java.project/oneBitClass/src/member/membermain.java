@@ -1,5 +1,6 @@
 package member;
 
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 import onebitclass.ClassDAO;
@@ -10,7 +11,8 @@ public class membermain {
 	public static void main(String[] args) {
 		MemberManager manager = new MemberManager(ClassMemberDAO.getInstance());
 		ClassManager classManager = new ClassManager(ClassDAO.getInstance());
-			
+
+
 		Scanner sc = new Scanner(System.in);
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");

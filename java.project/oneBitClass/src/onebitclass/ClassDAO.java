@@ -95,7 +95,7 @@ public class ClassDAO {
 		return result;
 	}
 
-	// 3. 강좌 정보 가져오기
+	// 3. 내가 개설한 강좌 정보 가져오기
 	ArrayList<BitClass> getInfo(Connection conn, int mno) {
 
 		ArrayList<BitClass> list = null;
@@ -145,4 +145,54 @@ public class ClassDAO {
 
 		return list;
 	}
+	
+	// 3. 전체 강좌 정보 가져오기
+		ArrayList<BitClass> getTakeClass(Connection conn) {
+
+			ArrayList<BitClass> list = null;
+
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+
+			try {
+				String sql = "select * from bitclass order by cno";
+				pstmt = conn.prepareStatement(sql);
+
+				// 결과 받아오기
+				rs = pstmt.executeQuery();
+
+				list = new ArrayList<>();
+
+				while (rs.next()) {
+					list.add(new BitClass(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
+							rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getFloat(9), rs.getInt(10), rs.getInt(11)));
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+
+			} finally {
+				if (rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+
+				if (pstmt != null) {
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+
+			}
+
+			return list;
+		}
 }

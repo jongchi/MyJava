@@ -3,13 +3,12 @@ package onebitclass;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import member.ClassMember;
 
 public class ClassManager {
-	
+
 	private ClassDAO dao;
 	private Scanner sc;
 	private BitClass bitClass;
@@ -66,5 +65,19 @@ public class ClassManager {
 		}
 		
 	}
-
+	
+	// 전체 강좌 정보 멤버 객체 생성
+	
+	ArrayList<BitClass> takeClass() {
+		ArrayList<BitClass> list = null;
+		try {
+			conn = DriverManager.getConnection(jdbcUrl, user, pw);
+			
+			list = dao.getTakeClass(conn);
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} return list;
+	} 
 }
