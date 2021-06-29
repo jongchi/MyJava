@@ -1,25 +1,291 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<!-- 웹 문서의 추가적인 속성들을 정의 -->
-<head>
-    <!-- 문서의 제목 -->
-    <title>HTML5 기본 태그</title>
-    <!-- 문서의 추가적인 속성 -->
-    <meta charset="utf-8"> <!-- 웹 문서의 문자 셀 설정-->
-    <style></style>
-    <script></script>
-</head>
+    <!-- 웹 문서의 추가적인 속성들을 정의 -->
+    <head>
+        <!-- 문서의 제목 -->
+        <title>HTML5 기본 태그</title>
+        <!-- 문서의 추가적인 속성 -->
+        <meta charset="utf-8"> <!-- 웹 문서의 문자 셑 설정-->
+        <style>
+            div {  
+                background-color: yellowgreen;
+                margin-top: 10px;
+                height: 50px;
 
-<body>
-    <!-- h1~h6 -> 제목 표현, 글자를 굵게 표현/태그에 따라 크기를 다르게 표현 -->
-    <h1>header - &nbsp&nbsp&nbsp       h1</h1>
-    <h2>header - h2</h2>
-    <h3>header - h3</h3>
-    <h4>header - h4</h4>
-    <h5>header - h5</h5>
-    <h6>header - h6</h6>
+            }
+
+            span {
+                background-color: yellow;
+                margin-right: 10px;
+                width : 100px; 
+                height : 100px;
+
+            }
+
+        </style>
+        <script></script>
+    </head>
+
+   
+    <!-- div, body, h1, p, 목록, 테이블, 입력 양식 태그는 블록 형식 -->
+    <!-- span, a, i, input, 글자 형식 태그는 인라인 형식 -->
+    <!-- 이미지 태그는 인라인 - 블록 형식 -->
+    <body>
+
+        <fieldset>
+            <legend>회원가입 폼</legend>
+                <form>
+                    <table>
+                        <tr>
+                            <th><label for="userid">아이디(email)</label></th>
+                            <td><input type="email" id="userid" name="userid"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="pw">비밀번호</label></th>
+                            <td><input type="password" id="pw" name="pw"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="username">이름</label></th>
+                            <td><input type="text" id="username" name="username"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="userPhoto">사진</label></th>
+                            <td><input type="file" id="userPhoto" name="userPhoto"></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td><input type="submit" value="회원가입"></td>
+                        </tr>
+                    </table>
+                </form>
+        </fieldset>
+
+
+        <hr>
+
+        <!-- 서버로 전송하고자 하는 폼 데이터를 묶는다.
+        action : 데이터를 전송할 경로(위치)
+        method : 전송 방식 ( GET / POST ) -->
+        <form action="#" method="get">
+            type=text : <input type="text" name="username" value="tester"> <br>
+            type=password : <input type="password" name="pw"> <br>
+            type=checkbox : <input type="checkbox" name="chk" value="ok1">
+            <input type="checkbox" name="chk" value="ok2"><br>
+            type=radio : A<input type="radio" name="choice" value="A">
+            B<input type="radio" name="choice" value="B">
+            C<input type="radio" name="choice" value="C">
+            D<input type="radio" name="choice" value="D">
+            F<input type="radio" name="choice" value="F"> <br>
+            type=color : <input type="color" name="color"> <br>
+            type=datetime-local : <input type="datetime-local" name="localDatetime"><br>
+            type=date : <input type="date" name="date"><br>
+            type=time : <input type="time" name="time"><br>
+            type=month : <input type="month"><br>
+            type=week : <input type="week"> <br>
+            type=email : <input type="email" name="email"><br>
+            type=file : <input type="file" name="userPhoto"><br>
+            type=hidden : 화면에는 표현되지 않는다.
+            <input type="hidden" name="idx" value="1"> <br>
+            type=image : <input type="image" src="images/2.jpg" height="50"><br>
+            type=number : <input type="number" name="num"> <br>
+            type=range : <input type="range" name="age" min="0" , max="150"> <br>
+            type= tel : <input type="tel"> <br>
+            type=url : <input type="url" name="url"><br> <br> <br>
+
+            <select name="year">
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+            </select>
+            <br><br>
+            <input type="submit"> <input type="reset">
+
+        </form>
+
+        <video 
+                src="media/trailer.mp4"
+                controls
+                preload="auto"
+                poster="images/1.jpg"
+                loop
+                autoplay
+                width="400"
+                height="300"
+        ></video>
+
+        <audio src="media/old_pop.mp3" controls
+                                    autoplay
+                                    loop
+                                    predload="auto"
+                                    muted>
+        </audio>
+
+        <hr>
+        
+        <div> div - 1 </div>
+        <div> div - 2 </div>
+        <div> div - 3 </div>
+
+        <span> span - 1 </span>
+        <span> span - 2 </span>
+        <span> span - 3 </span>
+        <hr>
+
+        <img src="images/1.jpg" height="100" width="150">
+        <img src="images/2.jpg" height="100" width="150">
+        <img src="images/3.jpg" alt="미니언즈 이미지">
+
+        <img src="https://ssl.pstatic.net/tveta/libs/1331/1331951/08b819753c810fe5cc48_20210629110931284.jpg">
+
+        <img src="http://placehold.it/300x200">
+        <hr>
+
+        <table border = "1">
+            <tr>
+                <td colspan="2">cell</td>
+            </tr>
+            <tr>
+                <td rowspan="3">cell</td>
+                <td>cell</td>
+            </tr>
+            <tr>
+                <td>cell</td>
+            </tr>
+            <tr>
+                <td>cell</td>
+            </tr>
+            <tr>
+                <td rowspan="4">cell</td>
+                <td>cell</td>
+            </tr>
+            <tr>
+                <td>cell</td>
+            </tr>
+            <tr>
+                <td>cell</td>
+            </tr>
+            <tr>
+                <td>cell</td>
+            </tr>
+
+        </table>
+
+        <HR>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <td> thead 1</td>
+                    <td> thead 2</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>tbody 1 - 1</td>
+                    <td>tbody 1 = 2</td>
+                </tr>
+                <tr>
+                    <td>tbody 2 - 1</td>
+                    <td>tbody 2 - 2</td>
+                </tr>
+                <tr>
+                    <td>111</td>
+                    <td>222</td>
+                    <td>333</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>tfoot - 1</td>
+                    <td>tfoot - 2</td>
+                </tr>
+            </tfoot>
+
+        </table>
+
+        <table border="1">
+
+                <tr>
+                    <td> thead 1</td>
+                    <td> thead 2</td>
+                </tr>
+
+                <tr>
+                    <td>tbody 1 - 1</td>
+                    <td>tbody 1 = 2</td>
+                </tr>
+                <tr>
+                    <td>tbody 2 - 1</td>
+                    <td>tbody 2 - 2</td>
+                </tr>
+                <tr>
+                    <td>111</td>
+                    <td>222</td>
+                    <td>333</td>
+                </tr>
+
+                <tr>
+                    <td>tfoot - 1</td>
+                    <td>tfoot - 2</td>
+                </tr>
+
+        </table>
+
+        <hr>
+
+        <ul>
+            <li>사과</li>
+            <li>바나나</li>
+            <li>수박</li>
+        </ul>
+        
+        <ol>
+            <li>사과</li>
+            <li>바나나</li>
+            <li>수박</li>
+        </ol>
+
+
+        <a href="http://www.bitcamp.co.kr">비트캠프</a>
+        <a href="http://www.naver.com">네이버</a>
+        <a href="http://www.daum.net">다음</a>
+
+        <hr>
+
+
+        <h1>홍차</h1>
+        <hr>
+        <h3>정의</h3>
+        <p>
+            홍차는 우롱차보다 더 많이 발효된 차의 일종이다.
+
+        </p>
+        <p>
+        <h3>등급</h3>
+        <p>
+            홍차는 여러 가지로 등급이 매겨진다.
+
+        </p>
+        - 브로큰 페코<br><br>
+        - 브로큰 페코 수숑<br><br>
+        - 브로큰 오렌지 페코 패닝<br><br>
+
+
+        <h1>제 꾀에 <i>넘어간</i> 日…日소재업체들 짐싸서 줄줄이 한국행</h1>
+        <hr>
+        <p>[편집자주] 2019년 7월4일 우리나라에 대한 <br>일본의 수출규제 후 2년이 지났다. 이에 자극받은 우리 기업들의 기술 자립화 노력은 소재·부품·장비 분야 경쟁력을 한단계 올려놨다. '노노재팬'으로 대표되는 일본산 불매운동도 소비자들의 행태를 바꿔놨다. 지난 2년간 대일 무역구조의 변화를 짚어보고 앞으로 갈 길을 살펴본다.</p>
+        <p>2년 전 이맘때, 나라가 망한다고 온통 떠들썩했다. <br>일본이 우리나라에 대한 불화수소, 불화폴리이미드, 포토레지스트 등 반도체·디스플레이 핵심소재 수출을 사실상 끊으면서다. 재계는 일본이 한국 산업의 폐부를 찔렀다며 당혹감을 감추지 못했다. 문재인 대통령이 "다시는 지지 않겠다. 일본을 뛰어넘겠다"며 강공으로 맞서자 정치권 일각에선 분노 대신 차분한 협상을 촉구하기도 했다.</p>
+        <p>2년이 지난 지금, 한국 경제의 미래 성장을 가로막아 타격을 가하겠다던 일본의 전략은 실패한 것으로 드러났다. 오히려 수출규제가 한국의 소재·부품·장비 생태계를 건강하게 만들고, 일본에 대한 기술 의존도를 낮추는 계기가 됐다. 한국 시장을 휘젓던 일본 소비재 업체들이 재기 불가능한 타격을 받고 스러지고 있다. 한일 무역전쟁의 승자는 우리였다.</p>
     
-</body>
-
+        <h1> a&lt;b  b&gt;c </h1>
+        <!-- h1~h6 -> 제목 표현, 글자를 굵게 표현/태그에 따라 크기를 다르게 표현 -->
+        <h1>header - &nbsp&nbsp&nbsp       h1</h1>
+        <h2>header - h2</h2>
+        <h3>header - h3</h3>
+        <h4>header - h4</h4>
+        <h5>header - h5</h5>
+        <h6>header - h6</h6>
+    </body>
 </html>
