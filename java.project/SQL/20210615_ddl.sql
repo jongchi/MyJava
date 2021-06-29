@@ -129,5 +129,5 @@ create table emp03 (
     ------------------------------------------------------------------
     -- 제약 정의
     constraint emp03_empno_pk primary key(ename), -- PK 제약
-    constraint emp03_deptno_kf foreign key(deptno) references dept(deptno)   
+    constraint emp03_deptno_fk foreign key(deptno) references dept(deptno)   
 );
