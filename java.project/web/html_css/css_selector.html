@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       /* 전체 선택자 */
+        * {
+            /* color : red; */
+        }
+        /* 여러 개의 선택자 지정 */
+        body, h1, p {
+            margin:0;
+            padding:0;
+        }
+
+        /* 태그 선택자 */
+        h1 {
+            /* background-color: yellow;
+            margin-top: 30px;
+            margin-left: 30px; */
+        }
+        p {
+            background-color: chartreuse;
+        }
+        /* 아이디 선택자 */
+        #title{
+           /*  font-size: 16px; */
+        }
+        /* 클래스 선택자 */
+        .font_a {
+            font-style: italic;
+        }
+        .font_b {
+            font-weight: 200;
+        }
+
+        #header {
+            background-color: red;
+            color: white;
+            width: 400px;
+            /* margin : 상하간격 좌우간격 */
+            margin: 10px auto;
+        }
+
+        #aside {
+            background-color: blue;
+            color: white;
+            width: 50%;
+        }
+
+        #content {
+            background-color: green;
+            color: white;
+            width: 200px;
+        }
+
+        .font_color_blue {
+            color : blue;
+        }
+
+        li.back_color_green {
+            background-color: yellowgreen;
+        }
+
+        h1.back_color_green {
+            background-color: yellowgreen;
+        }
+
+        /* 속성 선택자 */
+        input[type]{
+            width : 150px;
+            height : 50px;
+           font-size : 150%; /* 16px * 1.5 -> 24px */
+        }
+
+        input[type=text]{
+            background-color: yellow;
+        }
+
+        input[type=password]{
+            background-color: springgreen;
+        }
+
+        .img {
+            width : 200px;
+            height : 250px;
+        }
+
+        img[src$=jpg] {
+            border: 5px solid red;
+        }
+
+        img[src$=png] {
+            border: 5px solid blue;
+        }
+
+        img[src$=gif] {
+            border: 5px solid black;
+        }
+        /* 
+        후손 선택자 
+        부모선택 (공백) 선택자 
+        */
+        #header1 h1 {
+            color: red;
+        }
+
+        #section h1 {
+            color: orange;
+        }
+        /* 
+        자손 선택자
+        부모선택>선택자 
+        */
+        #header1>h1 {
+            background-color: palegoldenrod;
+        }
+
+        #section>h1 {
+            background-color: palegoldenrod;
+        }
+
+        /* 
+        동위 선택자
+        기준 선택요소 뒤에 오는 요소를 선택
+        1. 바로 뒤에 위치하는 요소 선택
+        2. 뒤에 존재하는 요소를 선택 
+        */
+        
+        /* 바로 뒤에 위치하는 요소를 선택 : + */
+        #title1+h2 {
+            background-color: rebeccapurple;
+        }
+        
+        /* 기준 요소 뒤로 존재하는 요소를 선택 : ~  */
+        #title1~h2 {
+            background-color: black;
+        }
+        
+        /* 선택영역에 마우스 커서가 위치하는 경우 -> :hover  */
+        #btn00:hover {
+            background-color: crimson;
+            color: white;
+        }
+
+        #btn00:active {
+            background-color: rgb(43, 182, 175);
+            color: white;
+        }
+
+        h1>a:hover {
+            color: deeppink;
+        }
+
+        /* 입력 양식 태그의 상태로 선택 */
+        input:disabled {
+            background-color: black;
+        }
+
+        input:enabled {
+            width: 200px;
+            height: 35px;
+            font-size: 1.2em;
+        }
+
+        input:focus {
+            border: 5px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input>
+
+    <input disabled value="cool">
+
+    <hr>
+
+    <h1><a href="#">click</a></h1>
+    <h1 id="btn00">Button</h1>
+
+    <hr>
+
+    <h2>header2 - 0</h2>
+    
+    <h1 id="title1">header1</h1>
+
+    <h2>header2 - 1</h2>
+    <h2>header2 - 2</h2>
+    <h2>header2 - 3</h2>
+    <h2>header2 - 4</h2>
+    <h2>header2 - 5</h2>
+    
+    <hr>
+
+    <h2>header2 - 6</h2>
+
+    <div id="header1">
+        <h1 class="title"> Lorem ipsum</h1>
+        <div id="nav">
+            <h1>Navigation</h1>
+            <h2>header2 - 7</h2>
+        </div>
+    </div>
+    <div id="section">
+        <h1 class="title"> Lorem ipsum</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    </div>
+
+    <hr>
+
+    <img src="a.jpg" class="img">
+    <img src="b.png" class="img">
+    <img src="c.gif" class="img">
+
+    <hr>
+
+    <input type="text"> <input type="password">
+
+    <hr>
+
+    <ul>
+        <li class="font_color_blue">사과</li>
+        <li class="back_color_green">바나나</li>
+        <li class="font_color_blue">오렌지</li>
+        <li>레몬</li>
+    </ul>
+    
+    <hr>
+
+    <div id="header">
+        <h1>header</h1>
+    </div>
+
+    <div id="wrap">
+        <div id="aside">
+            <h1>aside</h1>
+        </div>
+        <div id="content">
+            <h1>content</h1>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <h1 id="title"class="back_color_green">거리두기 개편 하루 앞두고, 확진700명대···권덕철 "엄중한 상황"</h1>
+
+    <p class="font_a font_b">사회적 거리두기 개편을 하루 앞둔 30일 방역 당국이 우리나라 신종 코로나바이러스 감염증(코로나19) 신규 환자가 700명대 중반을 넘어섰다며 거리두기 단계 상향 가능성을 열어놨다.
+
+        권덕철 보건복지부 장관은 30일 정부세종청사에 열린 중앙재난안전대책본부(중대본) 회의에서 “0시 기준, 국내 발생 확진자는 700명대 중반을 기록할 것으로 보인다. 매우 엄중한 상황이다”라고 말했다.</p>
+</body>
+</html>
