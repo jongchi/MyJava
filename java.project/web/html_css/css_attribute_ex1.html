@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle {
+            /* 블록 사이즈 지정 */
+            width: 100px;
+            height: 100px;
+            /* border 설정 */
+            border: 1px solid #ddd;
+            /* 원 만들기 */
+            border-radius: 50%;
+           
+            /*배경 이미지 지정*/
+            background-color: white;
+            background-image: url(../images/1.jpg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            /* 절대 좌표 위치 지정 */
+            position: absolute;
+        }
+
+        #wrap {
+            /* 블록 사이즈 지정 */
+            width: 600px;
+            height: 400px;
+            
+            /* 배경색 지정 */
+            background-color: palegoldenrod;
+
+            /* circle의 절대좌표 기준점 */
+            position: relative;
+        }
+
+        /* div wrap 안의 각 원 child 요소로 지정해서 위치 설정*/
+        #wrap> div:nth-child(1) { top: 10px; left: 10px;}
+        #wrap> div:nth-child(2) { top: 10px; right: 10px;}
+        #wrap> div:nth-child(3) { bottom: 10px; left: 10px;}
+        #wrap> div:nth-child(4) { bottom: 10px; right: 10px;}
+
+        /* 각각의 원을 id로 따로 지정해서 위치 설정*/
+        #c1 { top: 10px; left: 10px;}
+        #c2 { top: 10px; right: 10px;}
+        #c3 { bottom: 10px; left: 10px;}
+        #c4 { bottom: 10px; right: 10px;}
+</style>
+</head>
+<body>
+
+    <div id="wrap">
+        <div id="c1" class="circle"></div>
+        <div id="c2" class="circle"></div>
+        <div id="c3" class="circle"></div>
+        <div id="c4" class="circle"></div>
+    </div>
+    
+
+</body>
+</html>

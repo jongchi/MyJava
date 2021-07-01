@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minions page</title>
+
+    /* 도현체 설정 */
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <style>
+        /* 모든 태그의 기본 패딩과 마진 값을 0으로 초기화 */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* border의 기본 값 설정 */
+        .border {
+            border: 1px solid gold;
+        }
+
+        /* 회색 글씨 설정 */
+        .font_color_gray {
+            color: gray;
+        }
+
+        /* 도현체 */
+        .font_dohyun {
+            font-family: 'Do Hyeon', sans-serif;
+        }
+        /* 영역 가운데 정렬 */
+        .div_align_center {
+            margin: 0 auto;
+        }
+
+        /* 텍스트 가운데 정렬 */
+        .text_center {
+            text-align: center;
+        }
+        
+        /* 최상단 header 부분의 크기, 패딩 값 설정 */
+        header {
+            width: 758px;
+            height: 98px;
+            background-color: gold;
+            color: white;
+            padding: 20px;
+        }
+
+        /* 제목의 크기 조절 */
+        #main_title {
+            font-size: 3em;
+            line-height: 50px;
+        }
+
+        /* 부제목의 크기 조절 */
+        #sub_title {
+            font-size: 1.2em;
+        }
+
+        /* 네이게이션 바 기본 설정 */
+        nav {
+            width: 798px;
+            height: 30px;
+
+        }
+
+        /* li float, 크기 설정 */
+        nav li {
+            width: 60px;
+            line-height: 20px;
+            font-size: 18px;
+            padding: 5px 5px;
+
+            display: block;
+            float: left;
+        }
+        /* li중 홀수 목록만 노란색으로 설정 */
+        ul>li:nth-child(2n+1) {
+            background-color: yellow;
+        }
+        
+        /* 검색 버튼 설정 */
+        nav button {
+            margin-right: 5px;
+            margin-top: 3px;    
+            height: 22px;
+            width: 40px;
+            background-color: rgb(199, 199, 6);
+            float: right;
+            border-top-right-radius: 7px;
+            border-bottom-right-radius: 7px;
+            border: 3px solid rgb(199, 199, 6);
+        }
+        /* 검색 입력창 설정 */
+        nav input {
+            border: 1px solid rgb(199, 199, 6);
+            margin-top: 3px;
+            border-top-left-radius: 7px;
+            border-bottom-left-radius: 7px;
+            float: right;
+            height: 20px;
+        }
+
+        
+        /* 본문 전체 영역 설정 */
+        #wrap {
+            width: 800px;
+            overflow: hidden;
+        }
+
+        
+        /* 본문 내용 영역 설정 */
+        section {
+            width: 600px;
+            height: 800px;
+            float: left;
+            overflow-y: scroll;
+        }
+        /* 본문 간격 조정  */
+        .contents {
+            margin: 10px;
+        }
+
+        /* 본문 제목 설정 */
+        .contents_title {
+            font-size: 1.5em;
+            margin-bottom : 10px;
+        }
+
+        /* 단락 구분을 위해 margin 값 설정 */
+        hr {
+            margin: 15px 0;
+        }
+        /* 삽입된 jpg 파일 크기 조절 */
+        .minionsimg {
+            width: 300px;
+        }
+
+        /* aside 영역 설정  */
+        aside {
+            width: 200px;
+            height: 300px;
+            float: right;
+        }
+        /* aside 영역 간격 조정 */
+        .aside_menu {
+            margin-top: 10px;   
+            margin-left: 15px;
+        }
+
+        /* aside 제목 영역 크기 설정 */
+        .aside_title {
+            font-size: 0.8em;
+        }
+
+        /* aside 목록 영역 크기 설정 */
+        .aside_sub {
+            font-size: 0.6em;
+            line-height: 20px;
+        }
+        
+        footer {
+            width: 798px;
+            line-height: 50px;
+            background-color: goldenrod;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="border div_align_center font_dohyun">
+        <h1 id="main_title">Minions</h1>
+        <h2 id="sub_title" class="font_color_gray">Bit Class</h3>     
+    </header>
+    
+    <nav class="border div_align_center font_dohyun">
+        <ul>
+            <li class="text_center">Kevin</li>
+            <li class="text_center">Stewart</li>
+            <li class="text_center">Bob</li>
+        </ul>
+
+        <div>
+            <!-- 오른쪽 정렬기능 사용하기 위해 button 먼저 입력 -->
+            <button class="font_dohyun">검색</button>
+            <input type="text">
+        </div>
+    </nav>
+
+    <div id="wrap" class="div_align_center">
+        <section>
+            <div class="contents">
+                <h3 class="contents_title font_dohyun">Kevin</h3> 
+                <h4>2021년 7월 1일</h4>
+                <img class="minionsimg" src="../images/케빈.jpg">
+                <p>길쭉한 체형을 지닌 미니언이며 자존심이 강한 성격이고 나름 선구자적인 면이 있는건지 다른 미니언들이 보스가 없어서 의지박약과 무기력증 상태에 빠져있을 때 새 보스를 찾아주려고 직접 나서기로 했다. <br>
+                    감독의 말에 의하면 큰 형(Big brother) 포지션이라고. 확실히 어른스러운 성격으로 영화 내내 밥과 스튜어트를 돌봐주느라 종종거리며 돌아다닌다. 그러나 미니언인 것은 변하지 않아서 놀 때는 거침없이(…) 논다. 작중 활약으로 여왕에게서 기사 작위를 받는다.
+                    성별 불명이지만 작중에서 영 좋지 못한 곳을 가격당하는 것을 보면 아마도… 그리고 키는 165이다.</p>
+            </div>
+            <hr>
+            <div class="contents">
+                <h3 class="contents_title font_dohyun">Stewart</h3> 
+            <h4>2021년 7월 1일</h4>
+            <img class="minionsimg" src="../images/스튜어트.jpg">
+            <p>평범한 체형과 외안을 지닌 미니언으로, 식탐이 꽤 있는 편이며 바나나에 아주 환장한다. 본의아니게 새 보스를 찾기 위한 파티원이 돼서 미니언들이 살던 곳을 떠난다. <br>
+                그리고 배를 타고 있을 때 배가 고파서 케빈과 밥을 바나나로 착각하고 달려들었던 전적도 있으며, 도시에서 노란색의 소화전을 보고 여자 미니언으로 착각해서 들이대기도 하는 등 은근히 개그 캐릭터 같은 면모가 있다. 감독 인터뷰에서 스튜어트의 속성은 10대 청소년(teenager). 기타치는 것을 좋아하며 지미 핸드릭스 같은 당대 스타들을 동경하는 모습을 보인다.
+                참고로 스튜어트가 바지를 벗은 모습이 본편에서 나오는데(티 팬티를 입고 있었다.), 이 때 드러난 엉덩이가 은근히 매력적이다(…).</p>
+
+            </div>
+            
+            <hr>
+            
+            <div class="contents">
+                <h3 class="contents_title font_dohyun">Bob</h3> 
+            <h4>2021년 7월 1일</h4>
+            <img class="minionsimg" src="../images/밥.jpg">
+            <p>짤뚱한 체형을 지닌 미니언이고 홍채 이색증이 있어서 갈색 눈/녹색 눈의 오드아이이다. 선천적인 대머리인건지 아니면 어려서 머리카락이 아직 안 난건지는 몰라도 머리가 민둥민둥하다. <br>
+                케빈이 파티원을 모을 때 자신이 나서겠다고 적극적으로 나섰고 다른 미니언들이 나서지 않자 어부지리로 얻어 걸린다. 그러나 적극적인 모습과 달리 소심한 성격이며 나이도 어린 건지 케빈에게 주로 붙어다니면서 의지하거나 케빈에게 업혀다니는 모습을 보여준다. "팀"이라는 이름의 곰돌이 인형을 언제나 꼭 안고 다닌다. 참고로 곰돌이 팀은 스칼렛도 탐냈다. 나중에 지하 감옥에서 탈출하던 도중 하수구에서 우연히 쥐를 발견하여 부치라는 이름을 지어주고 팀과 함께 친구가 된다.</p>
+
+            </div>
+            
+        </section>
+
+        <aside>
+            <div class="aside_menu">
+                <h5 class="aside_title">카테고리</h5>
+                <h6 class="aside_sub">페이지</h6>
+                <h6 class="aside_sub">페이지</h6>
+                <h6 class="aside_sub">페이지</h6>
+                <h6 class="aside_sub">페이지</h6>
+                <h6 class="aside_sub">페이지</h6>
+            </div>
+
+            <div class="aside_menu">
+                <h5 class="aside_title">최근 글</h5>
+                <h6 class="aside_sub">페이지</h6>
+                <h6 class="aside_sub">페이지</h6>
+                <h6 class="aside_sub">페이지</h6>
+                <h6 class="aside_sub">페이지</h6>
+                <h6 class="aside_sub">페이지</h6>
+            </div>
+
+        </aside>
+    </div>
+
+    <footer class="div_align_center">
+        Minions
+    </footer>
+</body>
+</html>

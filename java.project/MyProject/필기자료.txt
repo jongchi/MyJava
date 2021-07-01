@@ -759,3 +759,28 @@ display 속성
 			repeat-x -> x축으로 이미지 반복 / 
 			repeat-y -> y축으로 이미지 반복 / 
 			no-repeat -> 반복하지 않음
+ - background-attachment: fixed; : scroll을 움직여도 배경이미지가 고정된 자리에 위치
+ - background-position: 키워드, x축, y축 모두 입력 가능
+
+font-size 속성
+ - font-size : px을 지정해서 대부분 사용
+ - font-family : 글꼴 지정, 사용자 pc에 font가 없을 경우를 대비해 여러 font를 ,로 나누어서 입력
+ ** 웹폰트! 구글 폰트 사용해서 추가하는 방법 숙지 
+ - font-style : 글자의 기울기 조정
+ - font-weight: 글자의 두께 조정
+
+z-index : 숫자가 큰 태그가 가장 화면 위에서 보이게 된다.
+
+overflow 
+ - hidden : 영역을 넘어가는 범위는 화면에 구현하지 않는다.
+ - scroll : 영역을 넘는 여부에 상관없이 스크롤을 만든다. overflow-x / overflow-y
+ - auto : 영역과 나타낼 태그를 맞춰, 필요시 스크롤 생성.
+
+float 속성
+ - 웹페이지를 만들 때 가장 많이 사용하는 속성, 레이아웃을 만들 때.
+ - left : 태그를 왼쪽에 붙임
+ - right : 태그를 오른쪽에 붙임
+
+nav 바에서 ul 태그 사용 + input text + submit
+
+
