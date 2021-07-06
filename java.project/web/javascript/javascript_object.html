@@ -155,7 +155,7 @@
             html += '   <tr>';
             html += '       <td>' + this.name + '</td>';
             html += '       <td>' + this.getSum() + '</td>';
-            html += '       <td>' + this.getAvg() + '</td>';
+            html += '       <td>' + Math.round(this.getAvg()) + '</td>';
             html += '   </tr>';
             return html;
         }
@@ -176,6 +176,12 @@
             students.push(new Student('HHH', 60, 80, 80));
             students.push(new Student('III', 70, 80, 90));
             students.push(new Student('JJJ', 80, 100, 80));
+
+            students.sort(function(left, right){
+                return right.getSum()-left.getSum();
+            });
+
+            students = students.slice(0,5);
 
             var html = '<table border="1">';
             html += '   <tr>';
@@ -237,7 +243,7 @@
         console.log(objNumber.toPrecision());
     </script> -->
 
-    <script>
+    <!-- <script>
         var str = 'hello~!!';
         var objStr = new String(str);
         
@@ -246,9 +252,26 @@
         console.log('str==objStr => ',str==objStr);
         console.log(str.length);
         console.log(objStr.length);
+    </script> -->
+
+    <script>
+
+        var arr = [5,8,3,7,9,2];
+
+        // sorting : 정렬
+        arr.sort(function(left, right){
+            //return left-right;
+            return right-left;
+        });
+
+        // 높은 순자 세개만 가지는 배열 생성
+        arr = arr.slice(0, 3);
+
+        arr.forEach(function(element){
+            console.log(element)
+        });
+
     </script>
-
-
 
 
 
