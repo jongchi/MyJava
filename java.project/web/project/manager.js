@@ -16,18 +16,37 @@ Member.prototype.makeHtml = function (){
 
 ////////////////////////////////////////////////////////////////////
 
-// 회원의 정보를 가져오는 메소드
+// 회원의 정보를 저장하는 메소드
 var members = []; // new Array()
+
+// 배열 -> JSON(문자열) -> localStorage 저장
+// 저장
+// 수정
+// 삭제
+// setItem('members', JSON.stringify(members))
+
+
 /////////////////////////////////////////////////////////////////
 
 // 사용자가 입력한 정보를 가지고 Member객체를 생성
 // submit 이벤트 연결
 
 window.onload = function(){
+    //localStorage에 저장된 데이터가 있는지 확인
+    // localStorage.getItem('members') 없으면 null 반환
+    if(localStorage.getItem('members') == null){
+        // 배열 members를 저장
+        localStorage.setItem('members', JSON.stringify(members));
+    } else {
+        console.log(localStorage.getItem('members'));
+        members = JSON.parse(localStorage.getItem('members')); //JSON 문자열 -> 객체로 변환
+        console.log(members);
+        // 테이블 셋팅
+        setList();
+    }
 
-    // 테이블 셋팅
 
-    setList();
+
 
     var userid = document.querySelector('#userID');
     var pw = document.querySelector('#pw');
@@ -97,7 +116,9 @@ window.onload = function(){
         members.push(new Member(userid.value, pw.value, userName.value));
 
         alert('등록되었습니다.');
-        console.log('회원 리스트, members');
+
+        localStorage.setItem('members', JSON.stringify(members));
+        console.log('회원 리스트', members);
 
         // form 초기화
         this.reset();
@@ -168,13 +189,90 @@ function setList(){
                 tbody += '  <td>'+members[i].userId+'</td>';
                 tbody += '  <td>'+members[i].pw+'</td>';
                 tbody += '  <td>'+members[i].userName+'</td>';
-                tbody += '  <td> 수정 | 삭제 </td>';
+                tbody += '  <td> <a href="javascript:editMember('+i+')"> 수정</a> | <a href="javascript:deleteMember('+i+')">삭제</a> </td>';
                 tbody += '</tr>';
             }
         }
 
         list.innerHTML = tbody;
 
+}
+
+// 배열의 요소 삭제 함수
+function deleteMember(index) {
+
+    // 배열의 index 요소를 삭제
+    // splice(index, count) : index에서 시작해서 count 만큼의 요소를 삭제하고 남은 요소를 반환
+    if(confirm('삭제하시겠습니까?')){
+        members.splice(index, 1);
+        alert('삭제되었습니다.');
+
+        localStorage.setItem('members', JSON.stringify(members));
+        //테이블 리스트를 갱신
+        setList();
+
+    }
 
 
+}
+
+// 배열의 요소 수정 함수
+function editMember(index) {
+
+    // 수정 폼 영역이 노출되어야 한다!
+    document.querySelector('#editFormArea').style.display = 'block';
+    
+
+
+    // alert(index + '인덱스의 요소를 수정합니다.');
+
+    // 전달받은 index값으로 members 배열의 객체 하나를 얻을 수 있다!
+    console.log(index, members[index]);
+
+    // editForm의 태그들의 value 값을 셋팅
+    var editUserId = document.querySelector('#editId');
+    var editPw = document.querySelector("#editPw");
+    var editRepw = document.querySelector('#editRepw');
+    var editName = document.querySelector('#editName');
+    var editIndex = document.querySelector('#index');
+
+    //이전 데이터를 폼에 세팅
+    editUserId.value = members[index].userId;
+    editPw.value = members[index].pw;
+    editRepw.value = members[index].pw;
+    editName.value = members[index].userName;
+    editIndex.value = index;
+
+    document.querySelector('#editForm').onsubmit = function(){
+
+        // var member = new Member(editUserId.value, editPw.value, editName.value);
+        // console.log(editIndex.value, member);
+
+        // 비밀번호와 비밀번호 확인이 같은지 체크
+        if(editPw.value != editRepw.value ){
+            alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+            return false;
+        }
+
+        if(!confirm('수정하시겠습니까?')){
+            return false;
+        }
+
+        members[editIndex.value].pw = editPw.value;
+        members[editIndex.value].userName = editName.value;
+
+        //저장
+        localStorage.setItem('members', JSON.stringify(members));
+        
+        alert('수정되었습니다.');
+        setList();
+
+        editMemberClose();
+
+        return false;
+    }
+}
+
+function editMemberClose(){
+    document.querySelector('#editFormArea').style.display = 'none';
 }
