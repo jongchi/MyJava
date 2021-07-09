@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery banner</title>
+    <style>
+
+        div>img {
+            width: 250px;
+            height: 200px;
+        }
+
+        #banner {
+            width: 250px;
+            height: 200px;
+            border: 10px solid #ddd;
+
+            overflow: hidden;
+        }
+    </style>
+
+    <script
+        src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous">
+    </script>
+
+    <script>
+
+        $(document).ready(function(){
+        
+            setInterval(function(){
+                $('#banner>img').first().appendTo('#banner');
+            }, 3000);
+        
+        
+        });
+  
+  
+  </script>
+</head>
+<body>
+
+    <div id="banner">
+        <img src="../images/밥.jpg">
+        <img src="../images/스튜어트.jpg">
+        <img src="../images/케빈.jpg">
+        <img src="../images/1.jpg">
+    </div>
+
+</body>
+</html>
