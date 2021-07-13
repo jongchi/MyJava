@@ -210,10 +210,7 @@ function deleteMember(index) {
         localStorage.setItem('members', JSON.stringify(members));
         //테이블 리스트를 갱신
         setList();
-
     }
-
-
 }
 
 // 배열의 요소 수정 함수
