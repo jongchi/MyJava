@@ -18,9 +18,9 @@
 		String str1 = str.toUpperCase();
 	
 	
-		// String[] str = {"a","b"};
+		 // String[] str = {"a","b"};
 	
-		// out.println(str[5]);
+		 // out.println(str[5]);
 	%>
 </body>
 </html>
