@@ -1,3 +1,5 @@
+<%@page import="dept.domain.Dept"%>
+<%@page import="dept.dao.DeptDao"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -5,7 +7,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	// 1. 사용자가 입력한 데이터를 받고
+	// 1. 사용자가 입력한 데이터를 받고 -> 처리 -> 결과를 속성에 저장 
 	
 	// 입력데이터의 한글 처리!!!
 	request.setCharacterEncoding("utf-8");
@@ -19,25 +21,18 @@
 	
 	
 	// 2. DB 처리 : insert
-	
 	// 데이터 베이스 드라이버 로드
-	try{ Class.forName("com.mysql.cj.jdbc.Driver");
-	
 	// 연결
+	try{ 
 	Connection conn = null;
-	PreparedStatement pstmt = null;
+	DeptDao dao = DeptDao.getInstance();
+
+
 	
 	conn = ConnectionProvider.getConnection();
 	
-	// preparedStatement
-	String sqlInsert = "insert into dept values(?, ?, ?)";
-	pstmt = conn.prepareStatement(sqlInsert);
-	pstmt.setInt(1, Integer.parseInt(deptno));
-	pstmt.setString(2, dname);
-	pstmt.setString(3, loc);
 	
-	
-	resultCnt = pstmt.executeUpdate();
+	resultCnt = dao.insertDept(conn, new Dept(Integer.parseInt(deptno), dname, loc));
 	
 	// out.println(resultCnt);
 	
