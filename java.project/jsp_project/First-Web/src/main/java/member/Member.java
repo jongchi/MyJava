@@ -14,6 +14,12 @@ public class Member {
 	
 	public Member(String name) {}
 	
+	public Member(String id, String pw, String name) {
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+	}
+	
 	// setter 
 	public void setId(String id) {
 		this.id = id;	
