@@ -8,6 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+	
+	span {
+		color : red;
+	}
 </style>
 <script>
 </script>
@@ -29,7 +33,12 @@
 		<tr>
 			<th>${member.id}</th>
 			<th>${member.pw}</th>
-			<th>${member.name}</th>
+			<th>
+				<c:out value="${member.name}" escapeXml="false">
+				<span>등록된 정보가 없습니다.</span>
+				</c:out>
+			
+			</th>
 		</tr>
 		
 		</c:forEach>
