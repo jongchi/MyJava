@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
     
  <%
- 	// 사용자가 전달한 데이터를 인코딩처리하는데 필요.
- 	request.setCharacterEncoding("utf-8");	
+ 	// 사용자가 전달한 데이터의 한글처리!!!!
+ 	// request.setCharacterEncoding("utf-8");	
  
  	String userName = request.getParameter("username");
  	String job = request.getParameter("job");
