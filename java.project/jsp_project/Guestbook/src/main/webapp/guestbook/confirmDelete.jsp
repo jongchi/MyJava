@@ -5,25 +5,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/default.css"> 
 <style>
 </style>
 <script>
 </script>
 </head>
 <body>
-
-<%@ include file="/WEB-INF/frame/header.jsp" %>
-
-<%@ include file="/WEB-INF/frame/nav.jsp" %>
-
-	<div class="contents">
+	<h3> 메시지를 삭제하려면 비밀번호를 입력하세요.</h3>
 	
-		<h1>Index</h1>
+	<form action="messageDelete.jsp" method="post">
+		비밀번호 <input type="password" name="password">
+		<input type="hidden" name="mid" value="${param.mid}"><br>
+		<input type="submit" value="삭제">
+	</form>
 	
-	
-	</div>
-
-
 </body>
 </html>

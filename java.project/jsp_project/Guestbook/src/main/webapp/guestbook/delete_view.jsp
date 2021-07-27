@@ -5,25 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/default.css"> 
 <style>
 </style>
 <script>
 </script>
 </head>
 <body>
-
-<%@ include file="/WEB-INF/frame/header.jsp" %>
-
-<%@ include file="/WEB-INF/frame/nav.jsp" %>
-
-	<div class="contents">
-	
-		<h1>Index</h1>
-	
-	
-	</div>
-
-
+	<h3>${msg}</h3>
+	<a href="list.jsp">리스트 보기</a>
 </body>
 </html>

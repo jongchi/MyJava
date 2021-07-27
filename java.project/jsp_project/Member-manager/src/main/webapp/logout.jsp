@@ -6,6 +6,6 @@
 	session.invalidate();
 %>
 <script>
-	alert('${contextPath}');
-	location.href = '<%= request.getContextPath()%>';
+	alert('로그아웃되었습니다.');
+	location.href = '${pageContext.request.contextPath}';
 </script>
