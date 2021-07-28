@@ -13,7 +13,7 @@ select * from project.guestbook_message order by regdate desc limit 3, 3;
 -- 전체 게시물의 개수
 select count(*) from project.guestbook_message;
 -- messageid로 게시물 검색
-select * from project.guestbook_message where mid="2";
+select * from project.guestbook_message where messageid="3";
 
 -- insert
 insert into project.guestbook_message (guestName, password, message)
