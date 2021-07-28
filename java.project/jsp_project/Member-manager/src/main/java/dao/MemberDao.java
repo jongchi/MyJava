@@ -22,7 +22,7 @@ public class MemberDao {
 		return dao;
 	}
 
-	public int insertMember(Connection conn, Member member) {
+	public int insertMember(Connection conn, Member member) throws SQLException {
 
 		int resultCnt = 0;
 
@@ -49,9 +49,8 @@ public class MemberDao {
 			
 			resultCnt = pstmt.executeUpdate();
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
 		}
 
 		return resultCnt;
@@ -97,7 +96,7 @@ public class MemberDao {
 	}
 	
 	
-	public Member selectByIdPw(Connection conn, String id, String pw) {
+	public Member selectByIdPw(Connection conn, String id, String pw) throws SQLException {
 		
 		Member member = null;
 		PreparedStatement pstmt = null;
@@ -121,9 +120,6 @@ public class MemberDao {
 			}
 			
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
