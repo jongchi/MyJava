@@ -98,7 +98,7 @@ public class FrontController extends HttpServlet {
 			command = new InvalidCommandImpl();
 		}
 		
-		viewPage = command.getPage(request);
+		viewPage = command.getPage(request, response);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

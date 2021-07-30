@@ -1,11 +1,12 @@
 package service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class GreetingCommandImpl implements Command {
 
 	@Override
-	public String getPage(HttpServletRequest request) {
+	public String getPage(HttpServletRequest request, HttpServletResponse response) {
 		
 		// 사용자 요청을 처리하고 view의 경로를 반환하는 메소드
 		// 결과 데이터를 request 속석에 저장하고 전달 	
