@@ -6,7 +6,7 @@
 	<nav>
 		<ul>
 			<c:if test="${loginInfo eq null}">
-				<li><a href="<c:url value='/regform.do'/>">회원가입</a></li>
+				<li><a href="<c:url value='regform.do'/>">회원가입</a></li>
 				<li><a href="<c:url value='loginform.do'/>">로그인</a></li>
 			</c:if>
 			<c:if test="${loginInfo ne null}">
