@@ -13,8 +13,13 @@
 	<hr>
 	<ul>
 		<li><a href="<c:url value="/hello"/>">/greeting</a></li>
-		<li><a href="<c:url value="/member/loginForm"/>">/member/loginForm</a></li>
-		<li><a href="<c:url value="/member/regForm"/>">/member/regForm</a></li>
+		<li><a href="<c:url value="/member/login"/>">/member/login</a></li>
+		<li><a href="<c:url value="/member/reg"/>">/member/reg</a></li>
+		<li><a href="<c:url value="/order/order"/>">/order/order</a></li>
+		<li><a href="<c:url value="/cookie/make"/>">/cookie/make</a></li>
+		<li><a href="<c:url value="/header/header"/>">/header/header</a></li>
+		<li><a href="<c:url value="/view/view1"/>">/view/view1</a></li>
+		
 	</ul>
 </body>
 </html>

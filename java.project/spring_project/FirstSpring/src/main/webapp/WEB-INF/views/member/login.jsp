@@ -13,29 +13,26 @@
 </head>
 <body>
 
-	<h1>LoginForm</h1>
-	<hr>                   <!-- /web/member/login.jsp -->
-	<form method="post">  
+	<h1>Login Request Data</h1>
+	<hr>                  
+		<!-- /web/member/login.jsp -->
+
 		<!-- action="/contextPath/member/login -->
 		<!-- /web/member/mypage/mypage.jsp -->
-		
+
 		<table>
 			<tr>
 				<td>아이디</td>
-				<td> <input type="text" name="id">
+				<td>${id}, ${uid}, ${loginReq.id} </td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td> <input type="password" name="pw">
+				<td>${pw}, ${upw}, ${loginReq.pw} </td>
 			</tr>
-			<tr>
-				<td></td>
-				<td> <input type="submit" >
-			</tr>
+
 			
 		</table>
 	
-	</form>
 	
 
 </body>
