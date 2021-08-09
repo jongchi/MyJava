@@ -10,6 +10,8 @@ public class FileUploadService {
 	@Autowired
 	Dao dao;
 	
+	final String UPLOAD_URI = "/uploadfile";
+	
 	public void fileUpload() {
 		dao.insert();
 	}

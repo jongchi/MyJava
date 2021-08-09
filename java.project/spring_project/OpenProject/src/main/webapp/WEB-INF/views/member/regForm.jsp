@@ -15,35 +15,39 @@
 <%@ include file="/WEB-INF/views/frame/nav.jsp" %>
 	
 	<div id="content">
-		
-		<h2>Login</h2>
+		<h1> Content : 회원 가입 </h1>
 		<hr>
-
-		<form method="post">
-
+		
+		<form method="post" enctype="multipart/form-data"> 
 			<table>
 				<tr>
-					<th>ID</th>
-					<td><input type="text" name="memberid" value="${cookie.memberid.value}"></td>
+					<td>아이디</td>
+					<td>
+						<input type="text" name="memberid" id="memberid">
+						
+					</td>
+					
 				</tr>
 				<tr>
-					<th>PW</th>
+					<td>비밀번호</td>
 					<td><input type="password" name="password"></td>
 				</tr>
 				<tr>
-					<th></th>
-					<td><input type="checkbox" name="reid" value="on"
-						${cookie.reid ne null ? 'checked' : ''}> 아이디 기억하기
-						
-						<input type="hidden" name="redirectUri" value="${redirectUri ne null ? redirectUri : '' }">
+					<td>이름</td>
+					<td><input type="text" name="membername"></td>
+				</tr>
+ 				<tr>
+					<td>사진</td>
+					<td><input type="file" name="memberphoto"></td>
+				</tr> 
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit">
+						<input type="reset" >
 					</td>
 				</tr>
-				<tr>
-					<th></th>
-					<td><input type="submit" value="로그인"></td>
-				</tr>
 			</table>
-
 		</form>
 		
 		

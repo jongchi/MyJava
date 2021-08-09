@@ -1,25 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
-<%@ include file="/WEB-INF/views/frame/metaheader.jsp" %>
-
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 	<nav>
 		<ul>
-			<li>회원 가입</li>
-			<li>로그인</li>
-			<li>로그아웃</li>
-			<li>회원 리스트</li>
-			<li>방명록(게시판)</li>
+			<li><a href="<c:url value='/member/memberReg'/>">회원 가입</a></li>
+			<li><a href="<c:url value='/member/login'/>">로그인</a></li>
+			<li><a>로그아웃</a></li>
+			<li><a>회원 리스트</a></li>
+			<li><a href="<c:url value='/board/list'/>">방명록(게시판)</a></li>
 		</ul>
 	</nav>
-
-</body>
-</html>

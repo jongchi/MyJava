@@ -45,7 +45,6 @@ public class LoginController {
 		// 3. 커맨드 객체(Beans) 이용
 		
 		System.out.println(id + " : " + pw);
-		
 		// view에 전달할 데이터 저장 : Model 객체를 이용
 		model.addAttribute("id", id);
 		model.addAttribute("pw", pw);
