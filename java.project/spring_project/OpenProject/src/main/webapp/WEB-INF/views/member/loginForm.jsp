@@ -24,7 +24,7 @@
 			<table>
 				<tr>
 					<th>ID</th>
-					<td><input type="text" name="memberid" value="${cookie.memberid.value}"></td>
+					<td><input type="text" name="memberid" value="${cookie.reid.value}"></td>
 				</tr>
 				<tr>
 					<th>PW</th>
@@ -35,7 +35,7 @@
 					<td><input type="checkbox" name="reid" value="on"
 						${cookie.reid ne null ? 'checked' : ''}> 아이디 기억하기
 						
-						<input type="hidden" name="redirectUri" value="${redirectUri ne null ? redirectUri : '' }">
+						<input type="hidden" name="redirectUri" value="${param.referer}">
 					</td>
 				</tr>
 				<tr>

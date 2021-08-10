@@ -1,17 +1,13 @@
 package com.bitcamp.op.member.domain;
 
-import java.io.File;
-
-import org.springframework.web.multipart.MultipartFile;
-
 public class LoginInfo {
 
 	private int idx;
 	private String memberId;
 	private String memberName;
-	private MultipartFile memberPhoto;
+	private String memberPhoto;
 
-	public LoginInfo(int idx, String memberId, String memberName, MultipartFile memberPhoto) {
+	public LoginInfo(int idx, String memberId, String memberName, String memberPhoto) {
 		this.idx = idx;
 		this.memberId = memberId;
 		this.memberName = memberName;
@@ -31,7 +27,7 @@ public class LoginInfo {
 	}
 
 	
-	public MultipartFile getMemberPhoto() {
+	public String getMemberPhoto() {
 		return memberPhoto;
 	}
 

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bitcamp.op.member.domain.Member;
+import com.bitcamp.op.member.domain.MemberRegRequest;
 import com.bitcamp.op.member.service.LoginService;
 import com.bitcamp.op.member.service.MemberRegService;
 
@@ -34,15 +35,24 @@ public class MemberRegController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String regMember(
-			Member member,
+			@ModelAttribute("regRequest") MemberRegRequest regRequest,
 			HttpServletRequest request,
 			Model model
 			) {
-	
-			int resultCnt = regService.regMember(member, request, model);
-			model.addAttribute("resultCnt", resultCnt);
-			
-		return "member/memberReg";
+		
+		// System.out.println(regRequest);
+		
+		int result = regService.memberReg(regRequest, request);
+		
+		model.addAttribute("result", result);
+		
+		String view = "member/reg";
+		
+		if(result == 1) {
+			// 인덱스 페이지로 리다이렉트
+			view = "redirect:/index";
+		}
+		return view;
 	}
 	
 }

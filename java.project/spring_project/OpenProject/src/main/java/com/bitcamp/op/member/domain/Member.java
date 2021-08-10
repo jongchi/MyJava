@@ -1,10 +1,7 @@
 package com.bitcamp.op.member.domain;
 
-import java.io.File;
 import java.sql.Timestamp;
 import java.util.Date;
-
-import org.springframework.web.multipart.MultipartFile;
 
 public class Member {
 	
@@ -12,10 +9,10 @@ public class Member {
 	private String memberid;
 	private String password;
 	private String membername;
-	private MultipartFile memberphoto;
+	private String memberphoto;
 	private Timestamp regdate;
 	
-	public Member(int idx, String memberid, String password, String membername, MultipartFile memberphoto, Timestamp regdate) {
+	public Member(int idx, String memberid, String password, String membername, String memberphoto, Timestamp regdate) {
 		this.idx = idx;
 		this.memberid = memberid;
 		this.password = password;
@@ -66,11 +63,11 @@ public class Member {
 		this.regdate = regdate;
 	}
 	
-	public MultipartFile getMemberphoto() {
+	public String getMemberphoto() {
 		return memberphoto;
 	}
 
-	public void setMemberphoto(MultipartFile memberphoto) {
+	public void setMemberphoto(String memberphoto) {
 		this.memberphoto = memberphoto;
 	}
 

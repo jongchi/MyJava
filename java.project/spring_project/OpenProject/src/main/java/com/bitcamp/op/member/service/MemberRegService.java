@@ -7,64 +7,79 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.bitcamp.op.jdbc.ConnectionProvider;
+import com.bitcamp.op.jdbc.JdbcUtil;
 import com.bitcamp.op.member.dao.MemberDao;
 import com.bitcamp.op.member.domain.Member;
+import com.bitcamp.op.member.domain.MemberRegRequest;
 
 @Service
 public class MemberRegService {
 	
-	@Autowired
-	MemberDao dao;
-	
 	final String UPLOAD_URI = "/uploadfile";
-
 	
-	public int regMember(Member member, HttpServletRequest request, Model model) {
+	@Autowired
+	private MemberDao dao;
+	
+	public int memberReg(
+			MemberRegRequest regRequest,
+			HttpServletRequest request
+			) {
 		
 		int resultCnt = 0;
-		
 		Connection conn = null;
+		File newFile = null;
+
+		try {		
+			// 1. 파일 저장
+			
+			// 시스템 경로
+			String path = request.getSession().getServletContext().getRealPath(UPLOAD_URI);
+			// 새로운 저장 폴더 : File
+			File newDir = new File(path);
+			
+			// 폴더가 존재하지 않으면 폴더 생성
+			if(newDir.exists()) {
+				newDir.mkdir();
+				System.out.println("저장 폴더를 생성했습니다.");
+			}
+			// 파일 저장시에 파일 이름이 같으면 덮어쓴다 -> 회원별 고유한 파일 이름을 만들자!!
+			String newFileName = regRequest.getMemberid()+System.currentTimeMillis();
+			// cool12354353454
+			
+			// 새로운 File 객체
+			newFile = new File(newDir, newFileName);
+			
+			// 파일 저장
+			if(regRequest.getPhoto() != null && !regRequest.getPhoto().isEmpty())
+			regRequest.getPhoto().transferTo(newFile);
 		
-		try {
+		
+			// 2. dao 저장
 			conn = ConnectionProvider.getConnection();
+			
+			// Member 객체 생성 -> 저장된 파일의 이름을 set
+			Member member = regRequest.toMember();
+			member.setMemberphoto(newFileName);
 			
 			resultCnt = dao.insertMember(conn, member);
 			
-			if(member.getMemberphoto()!= null) {
-				saveFile(request, member.getMemberphoto());			
-			}
-			
-			
+		} catch (IllegalStateException | IOException e) {
+			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			// DB 예외 발생 시 -> 저장된 파일을 삭제
+			if(newFile != null && newFile.exists()) {
+				newFile.delete();
+			}
 			e.printStackTrace();
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn);
 		}
 		
 		
-		
 		return resultCnt;
-	}
-	
-	private void saveFile(HttpServletRequest request, MultipartFile file) throws IllegalStateException, IOException {
-		// 저장 경로 : 시스템 경로
-		String saveDir = request.getSession().getServletContext().getRealPath(UPLOAD_URI);
-		
-		// 새롭게 저장할 파일
-		File newFile = new File(saveDir, file.getOriginalFilename());
-		file.transferTo(newFile);
 	}
 }

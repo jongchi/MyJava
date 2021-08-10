@@ -952,5 +952,9 @@ pom.xml에서도 java 1.8로 변경(plugin에도 있으니 조심!), java-compil
 Tomcat 의 filter & Spring의 interceptor 사용자의 요청을 받아 처리
 
 
-회원가입하는 틀을 만들어보장꽁~~
-경로는 똑같이 쓰고 폼 가져오는거 
+MVC 
+컨트롤러의 역할
+- 사용자의 요청 URL을 정의 
+- 핵심 처리하는 service 이용 결과 만들기
+- 결과를 공유
+
