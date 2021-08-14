@@ -1036,6 +1036,7 @@ myBatis 사용시 : 간단한 설정으로 기존 처리를 자동으로 해줌
 name space : 별칭 
 매핑구문정의 : xml과 애노테이션을 사용
 동적 SQL : if, choose, trim, foreach, set 동적으로 sql을 XML로 만들어서 사용
+MyBatis의 Statement는 기본이 PreparedStatement
 
 SqlSessionFactory : MyBatis - 설정 파일 => mapper(sql을 모아둠)의 위치를 설정 
 
@@ -1044,5 +1045,13 @@ SqlSessionFactory : MyBatis - 설정 파일 => mapper(sql을 모아둠)의 위�
 2) sqlSession
 3) Dao 
 
+1) 필요한 라이브러리 설정 (프로젝트 시작이라면 mysql, 히카리, jdbc, mybatis등등 다 넣어줘야함)
+2) root-context에서 datasource, sessionfactory, sqlSessionTemplate 등록 
 
+20210813 ----------------------------------------------------------------------------------
 
+동적 sql
+ex) 검색어를 가지고 동적 sql 을 진행하는 경우 ID or 이름 or ID+이름와 같이 조건에 따라 
+	sql이 변할 수 있도록 처리
+
+ 

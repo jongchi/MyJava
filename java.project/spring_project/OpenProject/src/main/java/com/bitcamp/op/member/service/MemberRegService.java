@@ -7,11 +7,13 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.op.jdbc.ConnectionProvider;
 import com.bitcamp.op.jdbc.JdbcUtil;
+import com.bitcamp.op.member.dao.Dao;
 import com.bitcamp.op.member.dao.JdbcTemplateMemberDao;
 import com.bitcamp.op.member.dao.MemberDao;
 import com.bitcamp.op.member.dao.mybatisMemberDao;
@@ -29,8 +31,13 @@ public class MemberRegService {
 	//@Autowired
 	//private JdbcTemplateMemberDao dao;
 	
+	//@Autowired
+	//private mybatisMemberDao dao;
+	
+	private Dao dao;
+	
 	@Autowired
-	private mybatisMemberDao dao;
+	private SqlSessionTemplate template;
 	
 	public int memberReg(
 			MemberRegRequest regRequest,
@@ -74,7 +81,7 @@ public class MemberRegService {
 			// 2. dao 저장
 			//conn = ConnectionProvider.getConnection();
 			
-
+			dao = template.getMapper(Dao.class);
 
 			
 			resultCnt = dao.insertMember(member);
@@ -86,9 +93,6 @@ public class MemberRegService {
 			// 자식 테이블 insert 구문....
 			
 		} catch (IllegalStateException | IOException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		

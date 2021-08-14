@@ -22,7 +22,7 @@
 <%@ include file="/WEB-INF/views/frame/nav.jsp" %>
 	
 	<div id="content">
-		<h1> Content : 게시판 리스트 </h1>
+		<h1> Content : 게시판 리스트 		${loginInfo}</h1>
 		<h2>${loginInfo}</h2>
 	</div>
 

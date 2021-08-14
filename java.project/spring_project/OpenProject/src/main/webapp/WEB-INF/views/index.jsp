@@ -22,6 +22,8 @@
 	
 	<div id="content">
 		<h1> Content : Index </h1>
+				${loginInfo}
+				${loginChk}
 	</div>
 
 
