@@ -1,18 +1,13 @@
 package com.bitcamp.op.member.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bitcamp.op.member.domain.Member;
@@ -26,6 +21,7 @@ public class MemberRestController {
 	private MemberRestService restService;
 	
 	@RequestMapping("/members/{id}")
+	@CrossOrigin
 	public Member getMember(
 			@PathVariable("id")int idx
 			) {
@@ -37,11 +33,13 @@ public class MemberRestController {
 	}
 	
 	@GetMapping("/members")
+	@CrossOrigin
 	public List<Member> getMembers(){
 		return restService.getMembers();
 	}
 	
 	@GetMapping("/members1")
+	@CrossOrigin
 	public Map<Integer, Member> getMembers1(){
 		
 		return restService.getMembers1();

@@ -67,7 +67,7 @@
 			// ajax 비동기 통신 > id를 서버로 보내고 사용 가능 유무의 응답 코드를 받는다 -> 화면에 메시지 출력
 
 			$.ajax({
-				url : 'http://localhost:8080/op/member/idCheck',
+				url : 'http://52.78.87.156:8080/op/member/idCheck',
 				type : 'post',
 				data : {
 					mid : $(this).val()
@@ -117,7 +117,7 @@
 			console.log(formData);
 
 			$.ajax({
-				url : '/op/members/reg1',
+				url : 'http://52.78.87.156:8080/op/members/reg1',
 				type : 'post',
 				data : formData,
 				enctype : 'multipart/form-data',
@@ -166,7 +166,7 @@
 	
 	function memberList(){
 		$.ajax({
-			url : 'http://localhost:8080/op/members',
+			url : 'http://52.78.87.156:8080/op/members',
 			type : 'GET',
 			success : function(data){
 				console.log(data);

@@ -1079,5 +1079,38 @@ MSA
 putty 
  - sudo su  
 
+20210819 -----------------------------------------------------------------------------------
+
+aws에서 데이터 베이스 이용
+- aws 로그인 후 서비스 -> 모든 서비스 -> RDS 이동
+- amazone aurora -> 데이터베이스 생성
+- 기존 UI -> 최하단 RDS 프리 티어에 적용되는 옵션만 사용 체크
+- 데이버테이스는 MySQL 체크후 다음단계
+- 설정 DB인스턴스 식별자(DB인스턴스에 대해 고유한 이름) 현재 mysql205
+- 마스터 사용자 ID/PW admin / jwyh****
+- 고급 설정 구성 -> 네트워크 및 보안 -> 퍼블릭 엑세스 가능성 : 예 체크
+- 데이터베이스 이름 : project(원하는걸로 설정) -> 포트 3306(mysql)
+- 생성 완료
+
+푸티 
+ - 시작할 때 권한을 위해 sudo su - 실행
+ - cd /usr/share/tomcat/webapps
+ - tomcat에서 tomcat-admin-webapps.noarch / tomcat-webapps.noarch 설치 
+ - 명령어 -> yum install  tomcat-admin-webapps.noarch tomcat-webapps.noarch
+ - 명령어 -> service tomcat start
+ - 명령어 -> service tomcat status
+
+아마존 RDS 
+ - RDS 다시 들어가서 보안 vpc 보안 그룹 클릭 
+ - 인바운드 규칙 변경 ipv4 0.0.0.0/0
+ - RDS 들어가서 엔드포인트 복사
+
+워크 벤치 
+ - 실행 홈에서 + 눌러서 추가
+ - 커넥션 네임 알아볼수 있게 지정하고 hostname에 엔드포인트 복사한것 붙여넣기
+ - username에 위에서 설정한 마스터 사용자 id/pw 입력하여 커넥션
+ - 들어가서 사용자 하나 새로 만들고 다시 홈으로 가서 + 눌러서 계정 추가
+
+
 
  
