@@ -15,4 +15,19 @@ public class IndexController {
 		System.out.println("/ 진입");
 		return "redirect:/index";
 	}
+	
+	@RequestMapping("/index2")
+	public String index2() {
+		return "index2";
+	}
+	
+	@RequestMapping("/juso")
+	public String juso() {
+		return "juso" ;
+	}
+	
+	@RequestMapping("/popup/jusoPopup")
+	public String jusoPopup() {
+		return "popup/jusoPopup";
+	}
 }
