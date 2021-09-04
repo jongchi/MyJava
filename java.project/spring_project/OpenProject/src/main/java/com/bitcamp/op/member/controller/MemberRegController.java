@@ -40,7 +40,7 @@ public class MemberRegController {
 			Model model
 			) {
 		
-		// System.out.println(regRequest);
+		System.out.println(regRequest);
 		
 		int result = regService.memberReg(regRequest, request);
 		

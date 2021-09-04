@@ -44,9 +44,7 @@
  					keyProperty="idx"
  	>
  	
- 		insert into member (memberid, password, membername, memberphoto)
- 		values (#{memberid}, #{password}, #{membername}, #{memberphoto}) 
- 	
+ 		
  	</insert>
  	
  	<update id="upadteMember"
