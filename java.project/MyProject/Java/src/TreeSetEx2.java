@@ -11,7 +11,7 @@ public class TreeSetEx2 {
 
 		}
 		
-		System.out.println("50º¸´Ù ÀÛÀº °ª : "+set.headSet(new Integer(50)));
-		System.out.println("50º¸´Ù Å« °ª : "+set.tailSet(new Integer(50)));
+		System.out.println("50 ì´í•œ: "+set.headSet(new Integer(50)));
+		System.out.println("50 ì´ìƒ: "+set.tailSet(new Integer(50)));
 	}
 }

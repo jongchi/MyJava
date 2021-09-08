@@ -12,18 +12,16 @@ public class FruitBoxEx1 {
 		Box<Fruit> fruitBox = new Box<Fruit>();
 		Box<Apple> appleBox = new Box<Apple>();
 		Box<Toy> toyBox = new Box<Toy>();
-		// Box<Grape> grapeBox = new Box<Apple>(); // 에러, 타입 불일치
-		
+		// Box<Grape> grapeBox = new Box<Apple>(); 
 		fruitBox.add(new Fruit());
 		fruitBox.add(new Apple());
 		
 
 		appleBox.add(new Apple());
 		appleBox.add(new Apple());
-		//appleBox.add(new Toy()); // 에러
-		
+		//appleBox.add(new Toy()); 
 		toyBox.add(new Toy());
-		//toyBox.add(new Apple()); // 에러
+		//toyBox.add(new Apple());
 
 		System.out.println(fruitBox);
 		System.out.println(appleBox);
