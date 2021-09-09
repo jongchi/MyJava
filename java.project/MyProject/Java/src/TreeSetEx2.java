@@ -11,7 +11,7 @@ public class TreeSetEx2 {
 
 		}
 		
-		System.out.println("50 이한: "+set.headSet(new Integer(50)));
+		System.out.println("50 이하: "+set.headSet(new Integer(50)));
 		System.out.println("50 이상: "+set.tailSet(new Integer(50)));
 	}
 }
